@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3490866526DEAC680088C9EB /* SCMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866426DEAC680088C9EB /* SCMatch.swift */; };
+		3490866726DEB1770088C9EB /* SCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866626DEB1770088C9EB /* SCError.swift */; };
+		3490866926DEBBF20088C9EB /* SCCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866826DEBBF20088C9EB /* SCCatalog.swift */; };
+		3490866B26DEBC010088C9EB /* SCCustomCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */; };
+		3490866D26DED6170088C9EB /* SCSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866C26DED6170088C9EB /* SCSessionProvider.swift */; };
+		3490866F26DED8460088C9EB /* SCSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866E26DED8460088C9EB /* SCSignature.swift */; };
 		34A7BC3A26DDEFCC0076F6A3 /* SoundCatalogKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */; };
 		34A7BC4026DDEFCD0076F6A3 /* SoundCatalogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A7BC3526DDEFCC0076F6A3 /* SoundCatalogKit.framework */; };
 		34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC4426DDEFCD0076F6A3 /* SoundCatalogKitTests.swift */; };
@@ -25,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3490866426DEAC680088C9EB /* SCMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMatch.swift; sourceTree = "<group>"; };
+		3490866626DEB1770088C9EB /* SCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCError.swift; sourceTree = "<group>"; };
+		3490866826DEBBF20088C9EB /* SCCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCatalog.swift; sourceTree = "<group>"; };
+		3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCustomCatalog.swift; sourceTree = "<group>"; };
+		3490866C26DED6170088C9EB /* SCSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionProvider.swift; sourceTree = "<group>"; };
+		3490866E26DED8460088C9EB /* SCSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignature.swift; sourceTree = "<group>"; };
 		34A7BC3526DDEFCC0076F6A3 /* SoundCatalogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoundCatalogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCatalogKit.h; sourceTree = "<group>"; };
 		34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SoundCatalogKit.docc; sourceTree = "<group>"; };
@@ -76,6 +88,12 @@
 				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
 				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
+				3490866426DEAC680088C9EB /* SCMatch.swift */,
+				3490866626DEB1770088C9EB /* SCError.swift */,
+				3490866826DEBBF20088C9EB /* SCCatalog.swift */,
+				3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */,
+				3490866C26DED6170088C9EB /* SCSessionProvider.swift */,
+				3490866E26DED8460088C9EB /* SCSignature.swift */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";
@@ -197,8 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3490866726DEB1770088C9EB /* SCError.swift in Sources */,
+				3490866D26DED6170088C9EB /* SCSessionProvider.swift in Sources */,
+				3490866926DEBBF20088C9EB /* SCCatalog.swift in Sources */,
 				34A7BC5026DDFF650076F6A3 /* SCSession.swift in Sources */,
+				3490866F26DED8460088C9EB /* SCSignature.swift in Sources */,
 				34A7BC3A26DDEFCC0076F6A3 /* SoundCatalogKit.docc in Sources */,
+				3490866B26DEBC010088C9EB /* SCCustomCatalog.swift in Sources */,
+				3490866526DEAC680088C9EB /* SCMatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +248,9 @@
 		34A7BC4726DDEFCD0076F6A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -274,21 +300,29 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
 		34A7BC4826DDEFCD0076F6A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -332,14 +366,20 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -418,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8SA62ZA26;
@@ -432,7 +473,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 			};
 			name = Debug;
 		};
@@ -440,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8SA62ZA26;
@@ -454,7 +496,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6";
 			};
 			name = Release;
 		};
