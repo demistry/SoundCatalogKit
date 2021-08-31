@@ -5,6 +5,10 @@
 //  Created by David Ilenwabor on 31/08/2021.
 //
 
+/** @framework SoundCatalogKit
+ @abstract A framework for providing custom audio recognition functionality
+ */
+
 #import <Foundation/Foundation.h>
 
 //! Project version number for SoundCatalogKit.
