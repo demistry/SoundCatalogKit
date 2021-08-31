@@ -6,6 +6,21 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3490867126DEE2F70088C9EB /* UniversalFrameworkBuilder */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3490867226DEE2F70088C9EB /* Build configuration list for PBXAggregateTarget "UniversalFrameworkBuilder" */;
+			buildPhases = (
+				3490867726DEE3890088C9EB /* CreateXCFramework */,
+			);
+			dependencies = (
+				3490867626DEE37D0088C9EB /* PBXTargetDependency */,
+			);
+			name = UniversalFrameworkBuilder;
+			productName = UniversalFrameworkBuilder;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3490866526DEAC680088C9EB /* SCMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866426DEAC680088C9EB /* SCMatch.swift */; };
 		3490866726DEB1770088C9EB /* SCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866626DEB1770088C9EB /* SCError.swift */; };
@@ -21,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3490867526DEE37D0088C9EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34A7BC2C26DDEFCC0076F6A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34A7BC3426DDEFCC0076F6A3;
+			remoteInfo = SoundCatalogKit;
+		};
 		34A7BC4126DDEFCD0076F6A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34A7BC2C26DDEFCC0076F6A3 /* Project object */;
@@ -37,6 +59,7 @@
 		3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCustomCatalog.swift; sourceTree = "<group>"; };
 		3490866C26DED6170088C9EB /* SCSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionProvider.swift; sourceTree = "<group>"; };
 		3490866E26DED8460088C9EB /* SCSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignature.swift; sourceTree = "<group>"; };
+		3490867C26DEF2680088C9EB /* build_universal_framework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_universal_framework.sh; sourceTree = "<group>"; };
 		34A7BC3526DDEFCC0076F6A3 /* SoundCatalogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoundCatalogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCatalogKit.h; sourceTree = "<group>"; };
 		34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SoundCatalogKit.docc; sourceTree = "<group>"; };
@@ -64,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3490867D26DEF4980088C9EB /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				3490867C26DEF2680088C9EB /* build_universal_framework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		34A7BC2B26DDEFCC0076F6A3 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +116,7 @@
 		34A7BC3726DDEFCC0076F6A3 /* SoundCatalogKit */ = {
 			isa = PBXGroup;
 			children = (
+				3490867D26DEF4980088C9EB /* Scripts */,
 				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
 				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
@@ -166,6 +198,9 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					3490867126DEE2F70088C9EB = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					34A7BC3426DDEFCC0076F6A3 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -189,6 +224,7 @@
 			targets = (
 				34A7BC3426DDEFCC0076F6A3 /* SoundCatalogKit */,
 				34A7BC3E26DDEFCD0076F6A3 /* SoundCatalogKitTests */,
+				3490867126DEE2F70088C9EB /* UniversalFrameworkBuilder */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +245,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3490867726DEE3890088C9EB /* CreateXCFramework */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = CreateXCFramework;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/SoundCatalogKit/Scripts/build_universal_framework.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34A7BC3126DDEFCC0076F6A3 /* Sources */ = {
@@ -237,6 +295,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3490867626DEE37D0088C9EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34A7BC3426DDEFCC0076F6A3 /* SoundCatalogKit */;
+			targetProxy = 3490867526DEE37D0088C9EB /* PBXContainerItemProxy */;
+		};
 		34A7BC4226DDEFCD0076F6A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 34A7BC3426DDEFCC0076F6A3 /* SoundCatalogKit */;
@@ -245,6 +308,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3490867326DEE2F70088C9EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8SA62ZA26;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3490867426DEE2F70088C9EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8SA62ZA26;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		34A7BC4726DDEFCD0076F6A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -503,6 +584,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3490867226DEE2F70088C9EB /* Build configuration list for PBXAggregateTarget "UniversalFrameworkBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3490867326DEE2F70088C9EB /* Debug */,
+				3490867426DEE2F70088C9EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		34A7BC2F26DDEFCC0076F6A3 /* Build configuration list for PBXProject "SoundCatalogKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
