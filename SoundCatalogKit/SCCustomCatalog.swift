@@ -9,7 +9,6 @@ import Foundation
 import ShazamKit
 
 public class SCCustomCatalog: SCCatalog {
-
     private(set) var customShazamCatalog: SHCustomCatalog
     
     public init() {
@@ -25,7 +24,7 @@ public class SCCustomCatalog: SCCatalog {
                 referenceSignature.signature,
                 representing: mediaItems.map({ $0.mediaItem }))
         } catch {
-            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeSignatureInvalid)
+            throw SCError(shError: error, defaultErrorCode: .signatureInvalid)
         }
     }
 
@@ -39,7 +38,7 @@ public class SCCustomCatalog: SCCatalog {
                 signature,
                 representing: mediaItems.map({ $0.mediaItem }))
         } catch {
-            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeSignatureInvalid)
+            throw SCError(shError: error, defaultErrorCode: .signatureInvalid)
         }
     }
     
@@ -77,7 +76,7 @@ public class SCCustomCatalog: SCCatalog {
         do {
             try customShazamCatalog.add(from: url)
         } catch {
-            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeCustomCatalogInvalidURL)
+            throw SCError(shError: error, defaultErrorCode: .customCatalogInvalidURL)
         }
     }
     
@@ -92,5 +91,4 @@ public class SCCustomCatalog: SCCatalog {
     public func getCustomCatalog() -> SCCustomCatalog {
         return self
     }
-    // add for downloading catalog from url and take in optional media items
 }

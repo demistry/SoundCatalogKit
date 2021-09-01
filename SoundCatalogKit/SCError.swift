@@ -28,7 +28,6 @@ class SCError: NSError {
     }
 }
 
-
 extension SCError {
     convenience init(shError: Error, defaultErrorCode: SCErrorCode) {
         let error = shError as NSError

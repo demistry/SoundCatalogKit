@@ -10,12 +10,15 @@ import ShazamKit
 
 public class SCMatchedMediaItem: SCMediaItem {
     private var matchedMediaItem: SHMatchedMediaItem
+    
     public var predictedCurrentMatchOffset: TimeInterval {
         matchedMediaItem.predictedCurrentMatchOffset
     }
+    
     public var frequencySkew: Float { 
         matchedMediaItem.frequencySkew
     }
+    
     public var matchOffset: TimeInterval { 
         matchedMediaItem.matchOffset
     }

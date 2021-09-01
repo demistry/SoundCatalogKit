@@ -28,7 +28,7 @@ class SCSignatureGenerator {
         do {
             try signatureGenerator.append(buffer, at: time)
         } catch {
-            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeInvalidAudioFormat)
+            throw SCError(shError: error, defaultErrorCode: .invalidAudioFormat)
         }
     }
     
@@ -50,7 +50,7 @@ class SCSignatureGenerator {
                 } catch {
                     throw SCError(
                         shError: error,
-                        defaultErrorCode: .SCErrorCodeSignatureDurationInvalid
+                        defaultErrorCode: .signatureDurationInvalid
                     )
                 }
             }

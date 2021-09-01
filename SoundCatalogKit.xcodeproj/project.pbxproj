@@ -24,7 +24,6 @@
 /* Begin PBXBuildFile section */
 		341A85C926DF2882008DDFEB /* SCStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85C826DF2882008DDFEB /* SCStreamer.swift */; };
 		341A85CB26DF28FE008DDFEB /* SCMicStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */; };
-		341A85CD26DF39DC008DDFEB /* SCCatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */; };
 		341A85CF26DF8BD6008DDFEB /* SCAudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */; };
 		3490866526DEAC680088C9EB /* SCMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866426DEAC680088C9EB /* SCMatch.swift */; };
 		3490866726DEB1770088C9EB /* SCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866626DEB1770088C9EB /* SCError.swift */; };
@@ -66,7 +65,6 @@
 /* Begin PBXFileReference section */
 		341A85C826DF2882008DDFEB /* SCStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCStreamer.swift; sourceTree = "<group>"; };
 		341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMicStreamer.swift; sourceTree = "<group>"; };
-		341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCatalogItem.swift; sourceTree = "<group>"; };
 		341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAudioConverter.swift; sourceTree = "<group>"; };
 		3490866426DEAC680088C9EB /* SCMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMatch.swift; sourceTree = "<group>"; };
 		3490866626DEB1770088C9EB /* SCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCError.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				3490867D26DEF4980088C9EB /* Scripts */,
 				341A85C826DF2882008DDFEB /* SCStreamer.swift */,
 				341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */,
-				341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */,
 				341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */,
 				34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */,
 				34B533CD26E00D01006FCEE4 /* SCDownloader.swift */,
@@ -322,7 +319,6 @@
 				341A85CB26DF28FE008DDFEB /* SCMicStreamer.swift in Sources */,
 				3490866526DEAC680088C9EB /* SCMatch.swift in Sources */,
 				3490868126DEF80B0088C9EB /* SCMatchedMediaItem.swift in Sources */,
-				341A85CD26DF39DC008DDFEB /* SCCatalogItem.swift in Sources */,
 				3490867F26DEF6560088C9EB /* SCErrorCode.swift in Sources */,
 				341A85CF26DF8BD6008DDFEB /* SCAudioConverter.swift in Sources */,
 			);

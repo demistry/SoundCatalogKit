@@ -9,11 +9,13 @@ import AVFAudio
 import Foundation
 
 typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
+
 class SCMicStreamer: SCStreamer {
     private var audioEngine: AVAudioEngine
     var isStreaming: Bool {
         audioEngine.isRunning
     }
+    
     var didUpdateAudioStream: AudioStreamUpdate = {_,_ in}
     var streamingFailed: ((Error) throws -> Void)?
     
@@ -36,7 +38,7 @@ class SCMicStreamer: SCStreamer {
             try audioEngine.start()
         } catch {
             try? streamingFailed?(SCError(
-                code: .SCErrorCodeAudioEngineFailed,
+                code: .audioEngineFailed,
                 description: "Audio engine failed to start. Error: \(error.localizedDescription)"
                 )
             )

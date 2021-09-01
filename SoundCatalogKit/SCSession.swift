@@ -8,7 +8,7 @@
 import AVFAudio
 import ShazamKit
 
-protocol SCSessionProtocol {
+protocol SCSessionProtocol: AnyObject {
     func startMatching()
     func stopMatching()
 }
@@ -71,8 +71,8 @@ public class SCSession: NSObject, SCSessionProtocol {
     }
 }
 
+// MARK: - SCSessionResultDelegate implementation
 extension SCSession: SCSessionResultDelegate {
-    
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
         delegate?.session?(self, didNotFindMatchFor: SCSignature(signature: signature), error: error)
     }

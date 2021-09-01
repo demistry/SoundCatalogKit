@@ -14,8 +14,8 @@ protocol SCSessionResultDelegate: AnyObject {
 }
 
 class SCSessionResultSource: NSObject, SHSessionDelegate {
-    
     weak var delegate: SCSessionResultDelegate?
+    
     override init() {
         super.init()
     }
