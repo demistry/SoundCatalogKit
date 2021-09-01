@@ -7,6 +7,14 @@
 
 import Foundation
 
-class SCCustomCatalog {
+protocol SCCatalog {
+    func addReferenceSignature(
+        _ referenceSignature: SCSignature,
+        representing mediaItems: [SCMediaItem]
+    ) throws
     
+    public func addReferenceSignatureData(
+        _ referenceData: Data,
+        representing mediaItems: [SCMediaItem]
+    ) throws
 }

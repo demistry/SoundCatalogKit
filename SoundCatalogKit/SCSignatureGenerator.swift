@@ -19,11 +19,7 @@ class SCSignatureGenerator {
         do {
             try signatureGenerator.append(buffer, at: time)
         } catch {
-            let error = error as NSError
-            throw SCError(
-                code: SCErrorCode(rawValue: error.code) ?? .SCErrorCodeInvalidAudioFormat,
-                userInfo: error.userInfo
-            )
+            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeInvalidAudioFormat)
         }
     }
     

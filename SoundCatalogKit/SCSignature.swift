@@ -19,11 +19,7 @@ public class SCSignature: NSObject {
         do {
             self.signature = try SHSignature(dataRepresentation: data)
         } catch {
-            let error = error as NSError
-            throw SCError(
-                code: SCErrorCode(rawValue: error.code) ?? .SCErrorCodeSignatureInvalid,
-                userInfo: error.userInfo
-            )
+            throw SCError(shError: error, defaultErrorCode: .SCErrorCodeSignatureInvalid)
         }
     }
 }

@@ -29,7 +29,7 @@ xcodebuild archive \
 
 # Clean up old output directory
 rm -rf "${OUTPUT_DIC}"
-# Create xcframwork combine of all frameworks
+# Create xcframwork combination of all frameworks
 xcodebuild -create-xcframework \
   -framework ${SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
   -framework ${DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
