@@ -21,8 +21,13 @@ struct SCAudioConverter {
              round(Double(frameCount) * (outputFormat.sampleRate / audioFile.processingFormat.sampleRate))
         )
 
-        guard let inputBuffer = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: frameCount),
-              let outputBuffer = AVAudioPCMBuffer(pcmFormat: outputFormat, frameCapacity: outputFrameCapacity) else {
+        guard let inputBuffer = AVAudioPCMBuffer(
+            pcmFormat: audioFile.processingFormat,
+            frameCapacity: frameCount
+        ), let outputBuffer = AVAudioPCMBuffer(
+            pcmFormat: outputFormat,
+            frameCapacity: outputFrameCapacity
+        ) else {
             return
         }
 
@@ -42,7 +47,10 @@ struct SCAudioConverter {
             }
         }
 
-        guard let converter = AVAudioConverter(from: audioFile.processingFormat, to: outputFormat) else {
+        guard let converter = AVAudioConverter(
+            from: audioFile.processingFormat,
+            to: outputFormat
+        ) else {
             return
         }
 

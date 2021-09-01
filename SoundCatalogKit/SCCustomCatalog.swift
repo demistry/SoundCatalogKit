@@ -44,7 +44,8 @@ public class SCCustomCatalog: SCCatalog {
     
     public func addSignatureFromAudioFile(
         withUrl audioURL: URL,
-        andAudioFormat format: AVAudioFormat?
+        andAudioFormat format: AVAudioFormat?,
+        representing mediaItems: [SCMediaItem]
     ) throws {
         guard let audioFormat = format ?? AVAudioFormat(
             standardFormatWithSampleRate: Constants.defaultSampleRate,
@@ -78,6 +79,10 @@ public class SCCustomCatalog: SCCatalog {
                 description: "Could not read/convert audio file from url"
             )
         }
+        try addReferenceSignature(
+            SCSignature(signature: signatureGenerator.signature()),
+            representing: mediaItems
+        )
     }
     
     public func add(from url: URL) throws {

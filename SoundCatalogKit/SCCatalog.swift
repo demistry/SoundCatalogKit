@@ -19,6 +19,12 @@ public protocol SCCatalog {
         representing mediaItems: [SCMediaItem]
     ) throws
     
+    func addSignatureFromAudioFile(
+        withUrl audioURL: URL,
+        andAudioFormat format: AVAudioFormat?,
+        representing mediaItems: [SCMediaItem]
+    ) throws
+    
     func add(from url: URL) throws
     
     func write(to url: URL) throws
