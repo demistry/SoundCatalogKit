@@ -15,10 +15,16 @@ protocol SCSessionProtocol {
     func stopMatching()
 }
 
-public protocol SCSessionDelegate: NSObjectProtocol {
+public protocol SCSessionDelegate: AnyObject {
     func session(_ session: SCSession, didFind match: SCMatch)
     func session(_ session: SCSession, didNotFindMatchFor signature: SCSignature, error: Error?)
     func session(_ session: SCSession, failedToMatchDueTo error: Error)
+}
+
+extension SCSessionDelegate {
+    func session(_ session: SCSession, didFind match: SCMatch) {}
+    func session(_ session: SCSession, didNotFindMatchFor signature: SCSignature, error: Error?) {}
+    func session(_ session: SCSession, failedToMatchDueTo error: Error) {}
 }
 
 public class SCSession: NSObject, SCSessionProtocol {

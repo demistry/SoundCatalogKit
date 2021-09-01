@@ -26,7 +26,7 @@
 		3490866726DEB1770088C9EB /* SCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866626DEB1770088C9EB /* SCError.swift */; };
 		3490866926DEBBF20088C9EB /* SCCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866826DEBBF20088C9EB /* SCCatalog.swift */; };
 		3490866B26DEBC010088C9EB /* SCCustomCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */; };
-		3490866D26DED6170088C9EB /* SCSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866C26DED6170088C9EB /* SCSessionProvider.swift */; };
+		3490866D26DED6170088C9EB /* SCSessionResultSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866C26DED6170088C9EB /* SCSessionResultSource.swift */; };
 		3490866F26DED8460088C9EB /* SCSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866E26DED8460088C9EB /* SCSignature.swift */; };
 		3490867F26DEF6560088C9EB /* SCErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490867E26DEF6560088C9EB /* SCErrorCode.swift */; };
 		3490868126DEF80B0088C9EB /* SCMatchedMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */; };
@@ -61,7 +61,7 @@
 		3490866626DEB1770088C9EB /* SCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCError.swift; sourceTree = "<group>"; };
 		3490866826DEBBF20088C9EB /* SCCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCatalog.swift; sourceTree = "<group>"; };
 		3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCustomCatalog.swift; sourceTree = "<group>"; };
-		3490866C26DED6170088C9EB /* SCSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionProvider.swift; sourceTree = "<group>"; };
+		3490866C26DED6170088C9EB /* SCSessionResultSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionResultSource.swift; sourceTree = "<group>"; };
 		3490866E26DED8460088C9EB /* SCSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignature.swift; sourceTree = "<group>"; };
 		3490867C26DEF2680088C9EB /* build_universal_framework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_universal_framework.sh; sourceTree = "<group>"; };
 		3490867E26DEF6560088C9EB /* SCErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCErrorCode.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */,
 				3490867D26DEF4980088C9EB /* Scripts */,
 				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
-				3490866C26DED6170088C9EB /* SCSessionProvider.swift */,
+				3490866C26DED6170088C9EB /* SCSessionResultSource.swift */,
 				3490866E26DED8460088C9EB /* SCSignature.swift */,
 				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
 				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
@@ -286,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3490866726DEB1770088C9EB /* SCError.swift in Sources */,
-				3490866D26DED6170088C9EB /* SCSessionProvider.swift in Sources */,
+				3490866D26DED6170088C9EB /* SCSessionResultSource.swift in Sources */,
 				3490866926DEBBF20088C9EB /* SCCatalog.swift in Sources */,
 				34A7BC5026DDFF650076F6A3 /* SCSession.swift in Sources */,
 				3490868526DF003F0088C9EB /* SCSignatureGenerator.swift in Sources */,
