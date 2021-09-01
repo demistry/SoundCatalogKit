@@ -82,6 +82,7 @@ extension SCSession: SCSessionResultDelegate {
     }
 
     func session(_ session: SHSession, didFind match: SHMatch) {
-//        delegate?.session(session, didFind: SCMatch())
+        delegate?.session(self, didFind: SCMatch(match: match))
+//        SHError.
     }
 }

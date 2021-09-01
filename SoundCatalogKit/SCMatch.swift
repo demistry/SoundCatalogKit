@@ -9,5 +9,8 @@ import Foundation
 import ShazamKit
 
 public class SCMatch {
-    
+    private var match: SHMatch
+    init(match: SHMatch) {
+        self.match = match
+    }
 }
