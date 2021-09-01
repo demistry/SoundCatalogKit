@@ -28,4 +28,6 @@ public protocol SCCatalog {
     func add(from url: URL) throws
     
     func write(to url: URL) throws
+    
+    func getCustomCatalog() -> SCCustomCatalog
 }

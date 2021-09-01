@@ -36,9 +36,9 @@ public class SCSession: NSObject, SCSessionProtocol {
         super.init()
     }
     
-    public convenience init(catalog: SCCustomCatalog) {
+    public convenience init(catalog: SCCatalog) {
         self.init()
-        session = SHSession(catalog: catalog.customCatalog)
+        session = SHSession(catalog: catalog.getCustomCatalog().customShazamCatalog)
         sessionResultSource = SCSessionResultSource()
         matcher = SCMicStreamer()
         setupMatcher()

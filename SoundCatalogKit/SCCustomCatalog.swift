@@ -10,17 +10,10 @@ import ShazamKit
 
 public class SCCustomCatalog: SCCatalog {
 
-    private(set) var customCatalog: SHCustomCatalog
-    private var streamer: SCStreamer
+    private(set) var customShazamCatalog: SHCustomCatalog
     
     public init() {
-        customCatalog = SHCustomCatalog()
-        streamer = SCMicStreamer()
-    }
-    
-    convenience init(streamer: SCStreamer) {
-        self.init()
-        self.streamer = streamer
+        customShazamCatalog = SHCustomCatalog()
     }
     
     public func addReferenceSignature(
@@ -28,7 +21,7 @@ public class SCCustomCatalog: SCCatalog {
         representing mediaItems: [SCMediaItem]
     ) throws {
         do {
-            try customCatalog.addReferenceSignature(
+            try customShazamCatalog.addReferenceSignature(
                 referenceSignature.signature,
                 representing: mediaItems.map({ $0.mediaItem }))
         } catch {
@@ -42,7 +35,7 @@ public class SCCustomCatalog: SCCatalog {
     ) throws {
         do {
             let signature = try SHSignature(dataRepresentation: referenceData)
-            try customCatalog.addReferenceSignature(
+            try customShazamCatalog.addReferenceSignature(
                 signature,
                 representing: mediaItems.map({ $0.mediaItem }))
         } catch {
@@ -55,47 +48,21 @@ public class SCCustomCatalog: SCCatalog {
         andAudioFormat format: AVAudioFormat?,
         representing mediaItems: [SCMediaItem]
     ) throws {
-        guard let audioFormat = format ?? AVAudioFormat(
-            standardFormatWithSampleRate: Constants.defaultSampleRate,
-            channels: 1
-        ) else {
-            return 
-        }
-        
-        let signatureGenerator = SHSignatureGenerator()
-        
+        let signatureGenerator = SCSignatureGenerator()
         do {
-            let audioFile = try AVAudioFile(forReading: audioURL)
-            let outputBlock: ((AVAudioPCMBuffer) throws -> Void) = { buffer in
-                do {
-                    try signatureGenerator.append(buffer, at: nil)
-                } catch {
-                    throw SCError(
-                        shError: error,
-                        defaultErrorCode: .SCErrorCodeSignatureDurationInvalid
-                    )
-                }
-            }
-            try SCAudioConverter.convert(
-                audioFile: audioFile,
-                withOutputFormat: audioFormat,
-                outputBlock: outputBlock
+            try signatureGenerator.generateSignatureFromAudioFile(withUrl: audioURL, andAudioFormat: format)
+            try addReferenceSignature(
+                signatureGenerator.signature(),
+                representing: mediaItems
             )
         } catch {
-            throw SCError(
-                code: .invalidAudioFile, 
-                description: "Could not read/convert audio file from url"
-            )
+            throw error
         }
-        try addReferenceSignature(
-            SCSignature(signature: signatureGenerator.signature()),
-            representing: mediaItems
-        )
     }
     
     public func add(from url: URL) throws {
         do {
-            try customCatalog.add(from: url)
+            try customShazamCatalog.add(from: url)
         } catch {
             throw SCError(shError: error, defaultErrorCode: .SCErrorCodeCustomCatalogInvalidURL)
         }
@@ -103,15 +70,14 @@ public class SCCustomCatalog: SCCatalog {
     
     public func write(to url: URL) throws {
         do {
-            try customCatalog.write(to: url)
+            try customShazamCatalog.write(to: url)
         } catch {
             throw SCError(shError: error, defaultErrorCode: .customCatalogSaveAttemptFailed)
         }
     }
-    // add for downloading catalog from url and take in optional media items
-}
-extension SCCustomCatalog {
-    private enum Constants {
-        static let defaultSampleRate: Double = 44100
+    
+    public func getCustomCatalog() -> SCCustomCatalog {
+        return self
     }
+    // add for downloading catalog from url and take in optional media items
 }

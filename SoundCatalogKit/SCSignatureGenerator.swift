@@ -26,6 +26,41 @@ class SCSignatureGenerator {
         }
     }
     
+    public func generateSignatureFromAudioFile(
+        withUrl audioURL: URL,
+        andAudioFormat format: AVAudioFormat?
+    ) throws {
+        guard let audioFormat = format ?? AVAudioFormat(
+            standardFormatWithSampleRate: Constants.defaultSampleRate,
+            channels: 1
+        ) else {
+            return 
+        }
+        do {
+            let audioFile = try AVAudioFile(forReading: audioURL)
+            let outputBlock: ((AVAudioPCMBuffer) throws -> Void) = { [weak self] buffer in
+                do {
+                    try self?.append(buffer, at: nil)
+                } catch {
+                    throw SCError(
+                        shError: error,
+                        defaultErrorCode: .SCErrorCodeSignatureDurationInvalid
+                    )
+                }
+            }
+            try SCAudioConverter.convert(
+                audioFile: audioFile,
+                withOutputFormat: audioFormat,
+                outputBlock: outputBlock
+            )
+        } catch {
+            throw SCError(
+                code: .invalidAudioFile, 
+                description: "Could not read/convert audio file from url"
+            )
+        }
+    }
+    
     public func generateSignatureFromAudioStream() throws {
         if streamer.isStreaming {
             return
@@ -35,9 +70,9 @@ class SCSignatureGenerator {
         }
         streamer.beginStreaming()
         repeat {
-            streamer.didUpdateAudioStream = { [weak signatureGenerator] buffer, audioTime in
+            streamer.didUpdateAudioStream = { [weak self] buffer, audioTime in
                 do {
-                    try signatureGenerator?.append(buffer, at: audioTime)
+                    try self?.append(buffer, at: audioTime)
                 } catch {
                     throw error
                 }
@@ -54,5 +89,11 @@ class SCSignatureGenerator {
     
     public func signature() -> SCSignature {
         return SCSignature(signature: signatureGenerator.signature())
+    }
+}
+
+extension SCSignatureGenerator {
+    private enum Constants {
+        static let defaultSampleRate: Double = 44100
     }
 }
