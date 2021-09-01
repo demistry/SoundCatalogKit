@@ -10,13 +10,16 @@ import Foundation
 
 typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
 class SCMicStreamer: SCStreamer {
-    private var audioEngine: AVAudioEngine!
-    
+    private var audioEngine: AVAudioEngine
     var isStreaming: Bool {
         audioEngine.isRunning
     }
     var didUpdateAudioStream: AudioStreamUpdate = {_,_ in}
     var streamingFailed: ((Error) throws -> Void)?
+    
+    init() {
+        audioEngine = AVAudioEngine()
+    }
     
     func beginStreaming() {
         let sampleRate = audioEngine.inputNode.outputFormat(forBus: .zero).sampleRate

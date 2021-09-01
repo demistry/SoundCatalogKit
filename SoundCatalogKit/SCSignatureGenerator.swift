@@ -14,6 +14,12 @@ class SCSignatureGenerator {
         let streamer = SCMicStreamer()
         return streamer
     }()
+    
+    private lazy var downloader: SCDownloader = {
+        let downloader = SCDownloadManager()
+        return downloader
+    }()
+    
     public init() {
         signatureGenerator = SHSignatureGenerator()
     }
@@ -84,6 +90,21 @@ class SCSignatureGenerator {
     public func stopGeneratingSignatureFromAudioStream() {
         if streamer.isStreaming {
             streamer.endStreaming()
+        }
+    }
+    
+    public func downloadSignatureFromRemoteURL(
+        _ url: URL,
+        _ completion: @escaping (SCSignature?, Error?
+        ) throws -> Void) {
+        Task { 
+            do {
+                let signatureData = try await downloader.downloadCatalogFromURL(url: url)
+                let signature = try SCSignature(dataRepresentation: signatureData)
+                try completion(signature, nil)
+            } catch {
+                try completion(nil, error)
+            }
         }
     }
     

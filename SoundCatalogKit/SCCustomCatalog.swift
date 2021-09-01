@@ -60,6 +60,19 @@ public class SCCustomCatalog: SCCatalog {
         }
     }
     
+    public func addRemoteSignature(
+        withRemoteURL url: URL,
+        representing mediaItems: [SCMediaItem]
+    ) throws {
+        let signatureGenerator = SCSignatureGenerator()
+        signatureGenerator.downloadSignatureFromRemoteURL(url) { [weak self] downloadedSignature, error in
+            guard let signature = downloadedSignature, error == nil else {
+                throw error!
+            } 
+            try self?.addReferenceSignature(signature, representing: mediaItems)
+        }
+    }
+    
     public func add(from url: URL) throws {
         do {
             try customShazamCatalog.add(from: url)

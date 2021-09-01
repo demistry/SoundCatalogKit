@@ -42,6 +42,8 @@
 		34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC4426DDEFCD0076F6A3 /* SoundCatalogKitTests.swift */; };
 		34A7BC4626DDEFCD0076F6A3 /* SoundCatalogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34A7BC5026DDFF650076F6A3 /* SCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC4F26DDFF650076F6A3 /* SCSession.swift */; };
+		34B533CC26E0047B006FCEE4 /* SCDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */; };
+		34B533CE26E00D01006FCEE4 /* SCDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B533CD26E00D01006FCEE4 /* SCDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		34A7BC3F26DDEFCD0076F6A3 /* SoundCatalogKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundCatalogKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A7BC4426DDEFCD0076F6A3 /* SoundCatalogKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCatalogKitTests.swift; sourceTree = "<group>"; };
 		34A7BC4F26DDFF650076F6A3 /* SCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSession.swift; sourceTree = "<group>"; };
+		34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloadManager.swift; sourceTree = "<group>"; };
+		34B533CD26E00D01006FCEE4 /* SCDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 				341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */,
 				341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */,
 				341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */,
+				34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */,
+				34B533CD26E00D01006FCEE4 /* SCDownloader.swift */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";
@@ -311,6 +317,8 @@
 				34A7BC3A26DDEFCC0076F6A3 /* SoundCatalogKit.docc in Sources */,
 				3490866B26DEBC010088C9EB /* SCCatalog.swift in Sources */,
 				341A85C926DF2882008DDFEB /* SCStreamer.swift in Sources */,
+				34B533CC26E0047B006FCEE4 /* SCDownloadManager.swift in Sources */,
+				34B533CE26E00D01006FCEE4 /* SCDownloader.swift in Sources */,
 				341A85CB26DF28FE008DDFEB /* SCMicStreamer.swift in Sources */,
 				3490866526DEAC680088C9EB /* SCMatch.swift in Sources */,
 				3490868126DEF80B0088C9EB /* SCMatchedMediaItem.swift in Sources */,
