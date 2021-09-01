@@ -22,8 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		341A85C926DF2882008DDFEB /* SCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85C826DF2882008DDFEB /* SCMatcher.swift */; };
-		341A85CB26DF28FE008DDFEB /* SCMicMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CA26DF28FE008DDFEB /* SCMicMatcher.swift */; };
+		341A85C926DF2882008DDFEB /* SCStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85C826DF2882008DDFEB /* SCStreamer.swift */; };
+		341A85CB26DF28FE008DDFEB /* SCMicStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */; };
 		341A85CD26DF39DC008DDFEB /* SCCatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */; };
 		341A85CF26DF8BD6008DDFEB /* SCAudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */; };
 		3490866526DEAC680088C9EB /* SCMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490866426DEAC680088C9EB /* SCMatch.swift */; };
@@ -62,8 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		341A85C826DF2882008DDFEB /* SCMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMatcher.swift; sourceTree = "<group>"; };
-		341A85CA26DF28FE008DDFEB /* SCMicMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMicMatcher.swift; sourceTree = "<group>"; };
+		341A85C826DF2882008DDFEB /* SCStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCStreamer.swift; sourceTree = "<group>"; };
+		341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMicStreamer.swift; sourceTree = "<group>"; };
 		341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCatalogItem.swift; sourceTree = "<group>"; };
 		341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAudioConverter.swift; sourceTree = "<group>"; };
 		3490866426DEAC680088C9EB /* SCMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMatch.swift; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 				3490866E26DED8460088C9EB /* SCSignature.swift */,
 				3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */,
 				3490867D26DEF4980088C9EB /* Scripts */,
-				341A85C826DF2882008DDFEB /* SCMatcher.swift */,
-				341A85CA26DF28FE008DDFEB /* SCMicMatcher.swift */,
+				341A85C826DF2882008DDFEB /* SCStreamer.swift */,
+				341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */,
 				341A85CC26DF39DC008DDFEB /* SCCatalogItem.swift */,
 				341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */,
 			);
@@ -310,8 +310,8 @@
 				3490868326DEF8D40088C9EB /* SCMediaItemProperty.swift in Sources */,
 				34A7BC3A26DDEFCC0076F6A3 /* SoundCatalogKit.docc in Sources */,
 				3490866B26DEBC010088C9EB /* SCCatalog.swift in Sources */,
-				341A85C926DF2882008DDFEB /* SCMatcher.swift in Sources */,
-				341A85CB26DF28FE008DDFEB /* SCMicMatcher.swift in Sources */,
+				341A85C926DF2882008DDFEB /* SCStreamer.swift in Sources */,
+				341A85CB26DF28FE008DDFEB /* SCMicStreamer.swift in Sources */,
 				3490866526DEAC680088C9EB /* SCMatch.swift in Sources */,
 				3490868126DEF80B0088C9EB /* SCMatchedMediaItem.swift in Sources */,
 				341A85CD26DF39DC008DDFEB /* SCCatalogItem.swift in Sources */,

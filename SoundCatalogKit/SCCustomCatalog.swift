@@ -9,10 +9,18 @@ import Foundation
 import ShazamKit
 
 public class SCCustomCatalog: SCCatalog {
+
     private(set) var customCatalog: SHCustomCatalog
+    private var streamer: SCStreamer
     
     public init() {
         customCatalog = SHCustomCatalog()
+        streamer = SCMicStreamer()
+    }
+    
+    convenience init(streamer: SCStreamer) {
+        self.init()
+        self.streamer = streamer
     }
     
     public func addReferenceSignature(
@@ -101,7 +109,6 @@ public class SCCustomCatalog: SCCatalog {
         }
     }
     // add for downloading catalog from url and take in optional media items
-    // add for creating catalog
 }
 extension SCCustomCatalog {
     private enum Constants {

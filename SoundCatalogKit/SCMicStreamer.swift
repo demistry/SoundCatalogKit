@@ -8,17 +8,17 @@
 import AVFAudio
 import Foundation
 
-typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) -> Void)
-class SCMicMatcher: SCMatcher {
+typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
+class SCMicStreamer: SCStreamer {
     private var audioEngine: AVAudioEngine!
     
-    var isMatching: Bool {
+    var isStreaming: Bool {
         audioEngine.isRunning
     }
     var didUpdateAudioStream: AudioStreamUpdate = {_,_ in}
-    var matchingFailed: ((Error) -> Void)?
+    var streamingFailed: ((Error) throws -> Void)?
     
-    func beginMatching() {
+    func beginStreaming() {
         let sampleRate = audioEngine.inputNode.outputFormat(forBus: .zero).sampleRate
         let audioFormat = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)
         audioEngine.inputNode.installTap(
@@ -26,13 +26,13 @@ class SCMicMatcher: SCMatcher {
             bufferSize: Constants.bufferSize,
             format: audioFormat
         ) { [weak self] buffer, audioTime in
-            (self?.didUpdateAudioStream)!(buffer, audioTime)
+            try? (self?.didUpdateAudioStream)!(buffer, audioTime)
         }
         
         do {
             try audioEngine.start()
         } catch {
-            matchingFailed?(SCError(
+            try? streamingFailed?(SCError(
                 code: .SCErrorCodeAudioEngineFailed,
                 description: "Audio engine failed to start. Error: \(error.localizedDescription)"
                 )
@@ -40,12 +40,12 @@ class SCMicMatcher: SCMatcher {
         }
     }
     
-    func endMatching() {
+    func endStreaming() {
         audioEngine.stop()
     }
 }
 
-extension SCMicMatcher {
+extension SCMicStreamer {
     private enum Constants {
         static let bufferSize: UInt32 = 2048
     }

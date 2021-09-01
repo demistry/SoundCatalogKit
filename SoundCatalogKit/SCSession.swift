@@ -25,10 +25,10 @@ protocol SCSessionProtocol {
 
 public class SCSession: NSObject, SCSessionProtocol {
     private var session: SHSession!
-    private var matcher: SCMatcher!
+    private var matcher: SCStreamer!
     private var sessionResultSource: SCSessionResultSource!
     public var isMatching: Bool {
-        matcher.isMatching
+        matcher.isStreaming
     }
     public weak var delegate: SCSessionDelegate?
     
@@ -40,7 +40,7 @@ public class SCSession: NSObject, SCSessionProtocol {
         self.init()
         session = SHSession(catalog: catalog.customCatalog)
         sessionResultSource = SCSessionResultSource()
-        matcher = SCMicMatcher()
+        matcher = SCMicStreamer()
         setupMatcher()
         sessionResultSource.delegate = self
         session.delegate = sessionResultSource
@@ -48,12 +48,11 @@ public class SCSession: NSObject, SCSessionProtocol {
     
     public func startMatching() {
         delegate?.sessionDidStartMatch?(self)
-        matcher.beginMatching()
-        
+        matcher.beginStreaming()
     }
     
     public func stopMatching() {
-        matcher.endMatching()
+        matcher.endStreaming()
         delegate?.sessionDidStopMatch?(self)
     }
     
@@ -62,7 +61,7 @@ public class SCSession: NSObject, SCSessionProtocol {
             guard let session = session else { return }
             session.matchStreamingBuffer(buffer, at: audioTime)
         }
-        matcher.matchingFailed = { [weak self] error in
+        matcher.streamingFailed = { [weak self] error in
             guard let self = self else { return }
             self.delegate?.session?(
                 self,

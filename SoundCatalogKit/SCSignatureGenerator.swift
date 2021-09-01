@@ -10,7 +10,10 @@ import ShazamKit
 
 class SCSignatureGenerator {
     private var signatureGenerator: SHSignatureGenerator
-    
+    private lazy var streamer: SCStreamer = {
+        let streamer = SCMicStreamer()
+        return streamer
+    }()
     public init() {
         signatureGenerator = SHSignatureGenerator()
     }
@@ -20,6 +23,32 @@ class SCSignatureGenerator {
             try signatureGenerator.append(buffer, at: time)
         } catch {
             throw SCError(shError: error, defaultErrorCode: .SCErrorCodeInvalidAudioFormat)
+        }
+    }
+    
+    public func generateSignatureFromAudioStream() throws {
+        if streamer.isStreaming {
+            return
+        }
+        streamer.streamingFailed = { error in
+            throw error
+        }
+        streamer.beginStreaming()
+        repeat {
+            streamer.didUpdateAudioStream = { [weak signatureGenerator] buffer, audioTime in
+                do {
+                    try signatureGenerator?.append(buffer, at: audioTime)
+                } catch {
+                    throw error
+                }
+            }
+            
+        } while streamer.isStreaming
+    }
+    
+    public func stopGeneratingSignatureFromAudioStream() {
+        if streamer.isStreaming {
+            streamer.endStreaming()
         }
     }
     
