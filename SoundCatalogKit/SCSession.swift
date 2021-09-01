@@ -25,10 +25,10 @@ protocol SCSessionProtocol {
 
 public class SCSession: NSObject, SCSessionProtocol {
     private var session: SHSession!
-    private var audioEngine: AVAudioEngine!
+    private var matcher: SCMatcher!
     private var sessionResultSource: SCSessionResultSource!
     public var isMatching: Bool {
-        audioEngine.isRunning
+        matcher.isMatching
     }
     public weak var delegate: SCSessionDelegate?
     
@@ -36,50 +36,43 @@ public class SCSession: NSObject, SCSessionProtocol {
         super.init()
     }
     
-    public convenience init(catalog: SCCatalog) {
+    public convenience init(catalog: SCCustomCatalog) {
         self.init()
         session = SHSession(catalog: catalog.customCatalog)
         sessionResultSource = SCSessionResultSource()
-        audioEngine = AVAudioEngine()
+        matcher = SCMicMatcher()
+        setupMatcher()
         sessionResultSource.delegate = self
         session.delegate = sessionResultSource
     }
     
     public func startMatching() {
-        let sampleRate = audioEngine.inputNode.outputFormat(forBus: .zero).sampleRate
-        let audioFormat = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)
-        audioEngine.inputNode.installTap(
-            onBus: .zero,
-            bufferSize: Constants.bufferSize,
-            format: audioFormat
-        ) { [weak session] buffer, audioTime in
-            session?.matchStreamingBuffer(buffer, at: audioTime)
-        }
+        delegate?.sessionDidStartMatch?(self)
+        matcher.beginMatching()
         
-        do {
-            try audioEngine.start()
-            delegate?.sessionDidStartMatch?(self)
-        } catch {
-            delegate?.session?(
-                self,
-                failedToMatchDueTo: SCError(
-                    code: .SCErrorCodeAudioEngineFailed,
-                    description: "Audio engine failed to start. Error: \(error.localizedDescription)"
-                )
-            )
-        }
     }
     
     public func stopMatching() {
-        audioEngine.stop()
+        matcher.endMatching()
         delegate?.sessionDidStopMatch?(self)
+    }
+    
+    private func setupMatcher() {
+        matcher.didUpdateAudioStream = {  [weak session] buffer, audioTime in
+            guard let session = session else { return }
+            session.matchStreamingBuffer(buffer, at: audioTime)
+        }
+        matcher.matchingFailed = { [weak self] error in
+            guard let self = self else { return }
+            self.delegate?.session?(
+                self,
+                failedToMatchDueTo: error
+            )
+        }
     }
 }
 
 extension SCSession: SCSessionResultDelegate {
-    private enum Constants {
-        static let bufferSize: UInt32 = 2048
-    }
     
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
         delegate?.session?(self, didNotFindMatchFor: SCSignature(signature: signature), error: error)

@@ -42,4 +42,10 @@ public enum SCErrorCode: Int {
     
     case SCErrorCodeAudioEngineFailed = 401
     
+    case customCatalogSaveAttemptFailed = 402
+    
+    case maximumCatalogItemsExceeded = 403
+    
+    case invalidAudioFile = 404
+    
 }
