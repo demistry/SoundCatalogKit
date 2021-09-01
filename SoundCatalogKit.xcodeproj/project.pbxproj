@@ -126,21 +126,21 @@
 		34A7BC3726DDEFCC0076F6A3 /* SoundCatalogKit */ = {
 			isa = PBXGroup;
 			children = (
+				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
+				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				3490866826DEBBF20088C9EB /* SCCatalog.swift */,
 				3490866A26DEBC010088C9EB /* SCCustomCatalog.swift */,
 				3490866626DEB1770088C9EB /* SCError.swift */,
 				3490867E26DEF6560088C9EB /* SCErrorCode.swift */,
 				3490866426DEAC680088C9EB /* SCMatch.swift */,
 				3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */,
+				3490868B26DF10530088C9EB /* SCMediaItem.swift */,
 				3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */,
-				3490867D26DEF4980088C9EB /* Scripts */,
 				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
 				3490866C26DED6170088C9EB /* SCSessionResultSource.swift */,
 				3490866E26DED8460088C9EB /* SCSignature.swift */,
-				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
-				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */,
-				3490868B26DF10530088C9EB /* SCMediaItem.swift */,
+				3490867D26DEF4980088C9EB /* Scripts */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";

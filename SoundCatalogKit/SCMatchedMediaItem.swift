@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 
-public class SCMatchedMediaItem {
+public class SCMatchedMediaItem: SCMediaItem {
     private var matchedMediaItem: SHMatchedMediaItem
     public var predictedCurrentMatchOffset: TimeInterval {
         matchedMediaItem.predictedCurrentMatchOffset
@@ -16,21 +16,22 @@ public class SCMatchedMediaItem {
     public var frequencySkew: Float { 
         matchedMediaItem.frequencySkew
     }
-
     public var matchOffset: TimeInterval { 
         matchedMediaItem.matchOffset
     }
     
-    public init(properties: [SCMediaItemProperty: Any]) {
+    public override init(properties: [SCMediaItemProperty: Any]) {
         let propertiesTuple = properties.map {
             (SHMediaItemProperty(rawValue: $0.key.rawValue), $0.value) 
         }
         self.matchedMediaItem = SHMatchedMediaItem(
             properties: Dictionary(uniqueKeysWithValues: propertiesTuple)
         )
+        super.init(properties: properties)
     }
     
     init(matchedMediaItem: SHMatchedMediaItem) {
         self.matchedMediaItem = matchedMediaItem
+        super.init(properties: [:])
     }
 }
