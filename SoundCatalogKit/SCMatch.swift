@@ -8,8 +8,12 @@
 import Foundation
 import ShazamKit
 
-public class SCMatch {
+public class SCMatch: NSObject {
     private var match: SHMatch
+    public var mediaItems: [SCMatchedMediaItem] {
+        match.mediaItems.map(SCMatchedMediaItem.init)
+    }
+    
     init(match: SHMatch) {
         self.match = match
     }

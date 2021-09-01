@@ -7,25 +7,21 @@
 
 import AVFAudio
 import ShazamKit
-struct Er: Error {
-    
-}
+
 protocol SCSessionProtocol {
     func startMatching()
     func stopMatching()
 }
 
-public protocol SCSessionDelegate: AnyObject {
-    func session(_ session: SCSession, didFind match: SCMatch)
-    func session(_ session: SCSession, didNotFindMatchFor signature: SCSignature, error: Error?)
-    func session(_ session: SCSession, failedToMatchDueTo error: Error)
-}
-
-extension SCSessionDelegate {
-    func session(_ session: SCSession, didFind match: SCMatch) {}
-    func session(_ session: SCSession, didNotFindMatchFor signature: SCSignature, error: Error?) {}
-    func session(_ session: SCSession, failedToMatchDueTo error: Error) {}
-}
+@objc public protocol SCSessionDelegate: AnyObject {
+    @objc optional func session(_ session: SCSession, didFind match: SCMatch)
+    @objc optional func session(_ session: SCSession, 
+                                didNotFindMatchFor signature: SCSignature, 
+                                error: Error?)
+    @objc optional func session(_ session: SCSession, failedToMatchDueTo error: Error)
+    @objc optional func sessionDidStartMatch(_ session: SCSession)
+    @objc optional func sessionDidStopMatch(_ session: SCSession)
+} 
 
 public class SCSession: NSObject, SCSessionProtocol {
     private var session: SHSession!
@@ -62,8 +58,9 @@ public class SCSession: NSObject, SCSessionProtocol {
         
         do {
             try audioEngine.start()
+            delegate?.sessionDidStartMatch?(self)
         } catch {
-            delegate?.session(
+            delegate?.session?(
                 self,
                 failedToMatchDueTo: SCError(
                     code: .SCErrorCodeAudioEngineFailed,
@@ -75,6 +72,7 @@ public class SCSession: NSObject, SCSessionProtocol {
     
     public func stopMatching() {
         audioEngine.stop()
+        delegate?.sessionDidStopMatch?(self)
     }
 }
 
@@ -84,11 +82,10 @@ extension SCSession: SCSessionResultDelegate {
     }
     
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
-        delegate?.session(self, didNotFindMatchFor: SCSignature(signature: signature), error: error)
+        delegate?.session?(self, didNotFindMatchFor: SCSignature(signature: signature), error: error)
     }
 
     func session(_ session: SHSession, didFind match: SHMatch) {
-        delegate?.session(self, didFind: SCMatch(match: match))
-//        SHError.
+        delegate?.session?(self, didFind: SCMatch(match: match))
     }
 }

@@ -32,6 +32,7 @@
 		3490868126DEF80B0088C9EB /* SCMatchedMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */; };
 		3490868326DEF8D40088C9EB /* SCMediaItemProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */; };
 		3490868526DF003F0088C9EB /* SCSignatureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */; };
+		3490868C26DF10530088C9EB /* SCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490868B26DF10530088C9EB /* SCMediaItem.swift */; };
 		34A7BC3A26DDEFCC0076F6A3 /* SoundCatalogKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */; };
 		34A7BC4026DDEFCD0076F6A3 /* SoundCatalogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A7BC3526DDEFCC0076F6A3 /* SoundCatalogKit.framework */; };
 		34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC4426DDEFCD0076F6A3 /* SoundCatalogKitTests.swift */; };
@@ -68,6 +69,7 @@
 		3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMatchedMediaItem.swift; sourceTree = "<group>"; };
 		3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMediaItemProperty.swift; sourceTree = "<group>"; };
 		3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignatureGenerator.swift; sourceTree = "<group>"; };
+		3490868B26DF10530088C9EB /* SCMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMediaItem.swift; sourceTree = "<group>"; };
 		34A7BC3526DDEFCC0076F6A3 /* SoundCatalogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoundCatalogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCatalogKit.h; sourceTree = "<group>"; };
 		34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SoundCatalogKit.docc; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
 				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */,
+				3490868B26DF10530088C9EB /* SCMediaItem.swift */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				3490866726DEB1770088C9EB /* SCError.swift in Sources */,
 				3490866D26DED6170088C9EB /* SCSessionResultSource.swift in Sources */,
+				3490868C26DF10530088C9EB /* SCMediaItem.swift in Sources */,
 				3490866926DEBBF20088C9EB /* SCCatalog.swift in Sources */,
 				34A7BC5026DDFF650076F6A3 /* SCSession.swift in Sources */,
 				3490868526DF003F0088C9EB /* SCSignatureGenerator.swift in Sources */,

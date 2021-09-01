@@ -8,8 +8,13 @@
 import Foundation
 import ShazamKit
 
-public class SCSignature {
-    private var signature: SHSignature
+public class SCSignature: NSObject {
+    private(set) var signature: SHSignature
+    
+    init(signature: SHSignature) {
+        self.signature = signature
+    }
+    
     public init(dataRepresentation data: Data) throws {
         do {
             self.signature = try SHSignature(dataRepresentation: data)
@@ -20,9 +25,5 @@ public class SCSignature {
                 userInfo: error.userInfo
             )
         }
-    }
-    
-    init(signature: SHSignature) {
-        self.signature = signature
     }
 }
