@@ -89,19 +89,10 @@ public class SCSignatureGenerator {
         }
     }
     
-    public func downloadSignatureFromRemoteURL(
-        _ url: URL,
-        _ completion: @escaping (SCSignature?, Error?
-        ) throws -> Void) {
-        Task { 
-            do {
-                let signatureData = try await downloader.downloadDataFromURL(url)
-                let signature = try SCSignature(dataRepresentation: signatureData)
-                try completion(signature, nil)
-            } catch {
-                try completion(nil, error)
-            }
-        }
+    public func downloadSignatureFromRemoteURL(_ url: URL) async throws -> SCSignature {
+        let signatureData = try await downloader.downloadDataFromURL(url)
+        let signature = try SCSignature(dataRepresentation: signatureData)
+        return signature
     }
     
     public func signature() -> SCSignature {

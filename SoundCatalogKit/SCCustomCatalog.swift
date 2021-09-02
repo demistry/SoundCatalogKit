@@ -64,14 +64,10 @@ public class SCCustomCatalog: SCCatalog {
     public func addRemoteSignature(
         fromRemoteURL url: URL,
         representing mediaItems: [SCMediaItem]
-    ) throws {
+    ) async throws {
         let signatureGenerator = SCSignatureGenerator()
-        signatureGenerator.downloadSignatureFromRemoteURL(url) { [weak self] downloadedSignature, error in
-            guard let signature = downloadedSignature, error == nil else {
-                throw error!
-            } 
-            try self?.addReferenceSignature(signature, representing: mediaItems)
-        }
+        let signature = try await signatureGenerator.downloadSignatureFromRemoteURL(url)
+        try addReferenceSignature(signature, representing: mediaItems)
     }
     
     public func addRemoteCatalog(fromRemoteURL url: URL) async throws {
