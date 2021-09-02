@@ -43,6 +43,8 @@
 		34A7BC5026DDFF650076F6A3 /* SCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7BC4F26DDFF650076F6A3 /* SCSession.swift */; };
 		34B533CC26E0047B006FCEE4 /* SCDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */; };
 		34B533CE26E00D01006FCEE4 /* SCDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B533CD26E00D01006FCEE4 /* SCDownloader.swift */; };
+		34DAD2E226E1217200FB9972 /* SCCustomCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD2E126E1217200FB9972 /* SCCustomCatalogTests.swift */; };
+		34DAD2E526E121C700FB9972 /* SCCustomCatalogMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD2E426E121C700FB9972 /* SCCustomCatalogMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +88,9 @@
 		34A7BC4F26DDFF650076F6A3 /* SCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSession.swift; sourceTree = "<group>"; };
 		34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloadManager.swift; sourceTree = "<group>"; };
 		34B533CD26E00D01006FCEE4 /* SCDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloader.swift; sourceTree = "<group>"; };
-		34DAD2DC26E09CDF00FB9972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		34DAD2DC26E09CDF00FB9972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34DAD2E126E1217200FB9972 /* SCCustomCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCustomCatalogTests.swift; sourceTree = "<group>"; };
+		34DAD2E426E121C700FB9972 /* SCCustomCatalogMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCustomCatalogMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,27 +141,9 @@
 		34A7BC3726DDEFCC0076F6A3 /* SoundCatalogKit */ = {
 			isa = PBXGroup;
 			children = (
-				34DAD2DC26E09CDF00FB9972 /* Info.plist */,
-				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
-				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
-				3490866826DEBBF20088C9EB /* SCCustomCatalog.swift */,
-				3490866A26DEBC010088C9EB /* SCCatalog.swift */,
-				3490866626DEB1770088C9EB /* SCError.swift */,
-				3490867E26DEF6560088C9EB /* SCErrorCode.swift */,
-				3490866426DEAC680088C9EB /* SCMatch.swift */,
-				3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */,
-				3490868B26DF10530088C9EB /* SCMediaItem.swift */,
-				3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */,
-				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
-				3490866C26DED6170088C9EB /* SCSessionResultSource.swift */,
-				3490866E26DED8460088C9EB /* SCSignature.swift */,
-				3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */,
-				3490867D26DEF4980088C9EB /* Scripts */,
-				341A85C826DF2882008DDFEB /* SCStreamer.swift */,
-				341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */,
-				341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */,
-				34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */,
-				34B533CD26E00D01006FCEE4 /* SCDownloader.swift */,
+				34DAD2ED26E12AEA00FB9972 /* Documentation */,
+				34DAD2EB26E12AC700FB9972 /* Resources */,
+				34DAD2E726E12A0B00FB9972 /* Source */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";
@@ -165,9 +151,117 @@
 		34A7BC4326DDEFCD0076F6A3 /* SoundCatalogKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				34DAD2E326E121B300FB9972 /* Mocks */,
 				34A7BC4426DDEFCD0076F6A3 /* SoundCatalogKitTests.swift */,
+				34DAD2E126E1217200FB9972 /* SCCustomCatalogTests.swift */,
 			);
 			path = SoundCatalogKitTests;
+			sourceTree = "<group>";
+		};
+		34DAD2E326E121B300FB9972 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				34DAD2E426E121C700FB9972 /* SCCustomCatalogMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		34DAD2E626E129ED00FB9972 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				3490866426DEAC680088C9EB /* SCMatch.swift */,
+				3490868026DEF80B0088C9EB /* SCMatchedMediaItem.swift */,
+				34A7BC4F26DDFF650076F6A3 /* SCSession.swift */,
+				3490866C26DED6170088C9EB /* SCSessionResultSource.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		34DAD2E726E12A0B00FB9972 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				34DAD2EF26E12B6D00FB9972 /* Network */,
+				34DAD2EE26E12B5E00FB9972 /* Audio */,
+				34DAD2EC26E12AD800FB9972 /* Headers */,
+				34DAD2EA26E12A9C00FB9972 /* Signature */,
+				34DAD2E926E12A3E00FB9972 /* Catalog */,
+				34DAD2E826E12A1B00FB9972 /* Error */,
+				34DAD2E626E129ED00FB9972 /* Session */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		34DAD2E826E12A1B00FB9972 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				3490866626DEB1770088C9EB /* SCError.swift */,
+				3490867E26DEF6560088C9EB /* SCErrorCode.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		34DAD2E926E12A3E00FB9972 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				3490868B26DF10530088C9EB /* SCMediaItem.swift */,
+				3490868226DEF8D40088C9EB /* SCMediaItemProperty.swift */,
+				3490866826DEBBF20088C9EB /* SCCustomCatalog.swift */,
+				3490866A26DEBC010088C9EB /* SCCatalog.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		34DAD2EA26E12A9C00FB9972 /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				3490866E26DED8460088C9EB /* SCSignature.swift */,
+				3490868426DF003F0088C9EB /* SCSignatureGenerator.swift */,
+			);
+			path = Signature;
+			sourceTree = "<group>";
+		};
+		34DAD2EB26E12AC700FB9972 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3490867D26DEF4980088C9EB /* Scripts */,
+				34DAD2DC26E09CDF00FB9972 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		34DAD2EC26E12AD800FB9972 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		34DAD2ED26E12AEA00FB9972 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		34DAD2EE26E12B5E00FB9972 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				341A85C826DF2882008DDFEB /* SCStreamer.swift */,
+				341A85CA26DF28FE008DDFEB /* SCMicStreamer.swift */,
+				341A85CE26DF8BD6008DDFEB /* SCAudioConverter.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		34DAD2EF26E12B6D00FB9972 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */,
+				34B533CD26E00D01006FCEE4 /* SCDownloader.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +390,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/SoundCatalogKit/Scripts/build_universal_framework.sh\"\n";
+			shellScript = "\"${SRCROOT}/SoundCatalogKit/Resources/Scripts/build_universal_framework.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -330,7 +424,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34DAD2E226E1217200FB9972 /* SCCustomCatalogTests.swift in Sources */,
 				34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */,
+				34DAD2E526E121C700FB9972 /* SCCustomCatalogMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +618,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SoundCatalogKit/Info.plist;
+				INFOPLIST_FILE = SoundCatalogKit/Resources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -560,7 +656,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SoundCatalogKit/Info.plist;
+				INFOPLIST_FILE = SoundCatalogKit/Resources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
