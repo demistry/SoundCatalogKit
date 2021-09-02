@@ -8,5 +8,6 @@
 import Foundation
 
 protocol SCDownloader {
-    func downloadCatalogFromURL(url: URL) async throws -> Data
+    func downloadDataFromURL(_ url: URL) async throws -> Data
+    func downloadFileFromURL(_ url: URL) async throws -> URL
 }

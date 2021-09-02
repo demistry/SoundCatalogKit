@@ -26,9 +26,11 @@ public protocol SCCatalog {
     ) throws
     
     func addRemoteSignature(
-        withRemoteURL url: URL,
+        fromRemoteURL url: URL,
         representing mediaItems: [SCMediaItem]
     ) throws
+    
+    func addRemoteCatalog(fromRemoteURL url: URL) async throws
     
     func add(from url: URL) throws
     

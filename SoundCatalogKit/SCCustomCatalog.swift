@@ -10,7 +10,9 @@ import ShazamKit
 
 public class SCCustomCatalog: SCCatalog {
     private(set) var customShazamCatalog: SHCustomCatalog
-    
+    private var downloader: SCDownloader {
+        return SCDownloadManager()
+    }
     public init() {
         customShazamCatalog = SHCustomCatalog()
     }
@@ -60,7 +62,7 @@ public class SCCustomCatalog: SCCatalog {
     }
     
     public func addRemoteSignature(
-        withRemoteURL url: URL,
+        fromRemoteURL url: URL,
         representing mediaItems: [SCMediaItem]
     ) throws {
         let signatureGenerator = SCSignatureGenerator()
@@ -69,6 +71,15 @@ public class SCCustomCatalog: SCCatalog {
                 throw error!
             } 
             try self?.addReferenceSignature(signature, representing: mediaItems)
+        }
+    }
+    
+    public func addRemoteCatalog(fromRemoteURL url: URL) async throws {
+        do {
+            let catalogTempURL = try await downloader.downloadFileFromURL(url)
+            try add(from: catalogTempURL)
+        } catch {
+            throw error
         }
     }
     

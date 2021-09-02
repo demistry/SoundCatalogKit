@@ -99,7 +99,7 @@ class SCSignatureGenerator {
         ) throws -> Void) {
         Task { 
             do {
-                let signatureData = try await downloader.downloadCatalogFromURL(url: url)
+                let signatureData = try await downloader.downloadDataFromURL(url)
                 let signature = try SCSignature(dataRepresentation: signatureData)
                 try completion(signature, nil)
             } catch {
