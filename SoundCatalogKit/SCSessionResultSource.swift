@@ -13,6 +13,7 @@ protocol SCSessionResultDelegate: AnyObject {
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?)
 }
 
+/// Used as a delegate object for SHSession
 class SCSessionResultSource: NSObject, SHSessionDelegate {
     weak var delegate: SCSessionResultDelegate?
     

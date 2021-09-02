@@ -23,19 +23,36 @@ protocol SCSessionProtocol: AnyObject {
     @objc optional func sessionDidStopMatch(_ session: SCSession)
 } 
 
+/// An object that manages matching a specific audio recording when a segment of that recording is part of captured sound from an input audio stream such as a microphone.
+/// 
+/// Prepare to make matches by: 
+/// - Creating a session for the catalog that contains the reference signatures
+/// - Adding your delegate that receives the match results
+/// 
+/// Search for a match by calling startMatching() .
+/// 
+/// Call stopMatching() to stop the input audio stream.
+/// 
+/// Searching the custom catalog is asynchronous. The session calls your delegate methods with the result.
+/// Ensure microphone permissions are duly requested and granted by the user before attempting a match.
 public class SCSession: NSObject, SCSessionProtocol {
     private var session: SHSession!
     private var matcher: SCStreamer!
     private var sessionResultSource: SCSessionResultSource!
+    
+    /// A flag to check if the session is currently matching input audio stream
     public var isMatching: Bool {
         matcher.isStreaming
     }
+    
+    /// The object that the session calls with the result of a match request.
     public weak var delegate: SCSessionDelegate?
     
     private override init() {
         super.init()
     }
     
+    /// Creates a new session for matching audio in a custom catalog.
     public convenience init(catalog: SCCatalog) {
         self.init()
         session = SHSession(catalog: catalog.getCustomCatalog().customShazamCatalog)
@@ -46,11 +63,13 @@ public class SCSession: NSObject, SCSessionProtocol {
         session.delegate = sessionResultSource
     }
     
+    /// Converts the continous input audio buffer to a signature, and searches the reference signatures in the session catalog.
     public func startMatching() {
         delegate?.sessionDidStartMatch?(self)
         matcher.beginStreaming()
     }
     
+    /// Stops searching the reference signatures in the session catalog.
     public func stopMatching() {
         matcher.endStreaming()
         delegate?.sessionDidStopMatch?(self)

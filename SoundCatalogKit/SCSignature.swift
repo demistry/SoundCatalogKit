@@ -8,13 +8,27 @@
 import Foundation
 import ShazamKit
 
+/// An object that contains the opaque data and other information for a signature.
+/// 
+/// Save your signature to a file and share it with others by writing the data to a file. You can use the saved signatures of reference recordings to populate a custom catalog.
 public class SCSignature: NSObject {
     private(set) var signature: SHSignature
+    
+    /// The duration of the audio you use to generate the signature.
+    public var duration: TimeInterval {
+        return signature.duration
+    }
+    
+    /// The raw data for the signature.
+    public var dataRepresentation: Data {
+        return signature.dataRepresentation
+    }
     
     init(signature: SHSignature) {
         self.signature = signature
     }
     
+    /// Creates a signature object from raw data.
     public init(dataRepresentation data: Data) throws {
         do {
             self.signature = try SHSignature(dataRepresentation: data)
@@ -23,11 +37,12 @@ public class SCSignature: NSObject {
         }
     }
     
-    /// Write this Signature to disk
-    /// @discussion A Signature can safely be shared among devices
-    /// @note If the `url` is a directory, a file named Signature.shazamsignature will be created
-    /// @param url The location to write to
-    /// @throws an error on failure to write signature to url
+    /// Write this Signature to disk.
+    /// A Signature can safely be shared among devices.
+    /// If the `url` is a valid directory, a file named Signature.shazamsignature will be created.
+    /// - Parameters:
+    ///     - url: The location to write to.
+    /// - Throws: a ``SCErrorCode.signatureSaveAttemptFailed`` error on failure to write signature to url.
     public func write(to url: URL) throws {
         var destinationURL = url
         if destinationURL.pathExtension != Constants.signatureFileExtension ||
