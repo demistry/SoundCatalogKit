@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 
-class SCSignatureGenerator {
+public class SCSignatureGenerator {
     private var signatureGenerator: SHSignatureGenerator
     private lazy var streamer: SCStreamer = {
         let streamer = SCMicStreamer()
