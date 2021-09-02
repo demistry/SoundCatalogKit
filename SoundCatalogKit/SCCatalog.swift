@@ -8,6 +8,7 @@
 import Foundation
 import ShazamKit
 
+/// Base protocol for storing reference signatures and their associated metadata.
 public protocol SCCatalog { 
     func addReferenceSignature(
         _ referenceSignature: SCSignature,

@@ -5,9 +5,8 @@
 //  Created by David Ilenwabor on 31/08/2021.
 //
 
-/** @framework SoundCatalogKit
- @abstract A framework for providing custom audio recognition functionality
- */
+/// SoundCatalogKit
+/// A framework for providing custom audio recognition functionality based on ShazamKit
 
 #import <Foundation/Foundation.h>
 
@@ -16,7 +15,4 @@ FOUNDATION_EXPORT double SoundCatalogKitVersionNumber;
 
 //! Project version string for SoundCatalogKit.
 FOUNDATION_EXPORT const unsigned char SoundCatalogKitVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SoundCatalogKit/PublicHeader.h>
-
 

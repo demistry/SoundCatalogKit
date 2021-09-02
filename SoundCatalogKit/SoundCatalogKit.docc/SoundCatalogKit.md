@@ -1,6 +1,6 @@
 # ``SoundCatalogKit``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+A framework for providing custom audio recognition functionality based on ShazamKit
 
 ## Overview
 
