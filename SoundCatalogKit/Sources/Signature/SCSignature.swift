@@ -28,6 +28,11 @@ public class SCSignature: NSObject {
         self.signature = signature
     }
     
+    override init() {
+        signature = SHSignature()
+        super.init()
+    }
+    
     /// Creates a signature object from raw data.
     public init(dataRepresentation data: Data) throws {
         do {
