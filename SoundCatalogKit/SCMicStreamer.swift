@@ -10,20 +10,27 @@ import Foundation
 
 typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
 
+/// Used to stream input audio from the microphone
 class SCMicStreamer: SCStreamer {
     private var audioEngine: AVAudioEngine
     
     var isStreaming: Bool {
         audioEngine.isRunning
     }
+    /// Delivers updates on an ongoing stream
     var didUpdateAudioStream: AudioStreamUpdate = {_, _ in}
+    
+    /// Delivers an error that occured on an ongoing stream
     var streamingFailed: ((Error) throws -> Void)?
+    
+    /// Delegate to send information on an ongoing stream
     weak var delegate: StreamerDelegate?
     
     init() {
         audioEngine = AVAudioEngine()
     }
     
+    /// Begin streaming audio from microphone
     func beginStreaming() {
         let sampleRate = audioEngine.inputNode.outputFormat(forBus: .zero).sampleRate
         let audioFormat = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)
@@ -53,6 +60,7 @@ class SCMicStreamer: SCStreamer {
         }
     }
     
+    /// Stop streaming from microphone
     func endStreaming() {
         audioEngine.stop()
     }

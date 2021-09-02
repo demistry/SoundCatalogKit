@@ -8,6 +8,7 @@
 import AVFAudio
 import Foundation
 
+/// Used to send information on audio stream
 protocol StreamerDelegate: AnyObject {
     func streamer(
         _ streamer: SCStreamer,
@@ -17,6 +18,7 @@ protocol StreamerDelegate: AnyObject {
     func streamer(_ streamer: SCStreamer, didFail error: Error)
 }
 
+/// Base protocol that all streaming objects conform to
 protocol SCStreamer {
     var isStreaming: Bool { get }
     var didUpdateAudioStream: (AVAudioPCMBuffer, AVAudioTime?) throws -> Void { get set }

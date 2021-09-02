@@ -66,7 +66,7 @@ public class SCCustomCatalog: SCCatalog {
         }
     }
     
-    /// Creates a reference signature from its raw data and adds it with its associated metadata to a catalog.
+    /// Creates a reference signature from an audio file and adds it with its associated metadata to a catalog.
     ///
     /// - Parameters:
     ///   - audioURL: The file URL for an audio file.

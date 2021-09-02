@@ -8,7 +8,15 @@
 import Foundation
 import AVFAudio
 
+/// Converts an audio file to its output buffer for further processing.
 struct SCAudioConverter {
+    
+    /// Converts an audio file to an output buffer for further processing.
+    ///
+    /// - Parameters:
+    ///   - audioFile: The audio file to be converted.
+    ///   - outputFormat: The output format of the audio file after conversion.
+    ///   - outputBlock: A handler called with realtime updates of the conversion.
     static func convert(
         audioFile: AVAudioFile,
         withOutputFormat outputFormat: AVAudioFormat,
