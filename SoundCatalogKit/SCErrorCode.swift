@@ -8,46 +8,39 @@
 import Foundation
 import ShazamKit
 
+/// Codes for the errors that SoundCatalogKit produces.
 public enum SCErrorCode: Int {
-    /// The @c AVAudioFormat is not supported
-    /// SoundCatalogKit only accepts certain audio formats
-    /// -[SHSignatureGenerator appendBuffer:atTime:error] for valid formats
+    
+    /// The error code to indicate an unsupported audio format.
     case invalidAudioFormat = 100
-    /// The audio provided was not contiguous
-    /// SoundCatalog requires audio to be contiguous in order
-    /// to match.
+    
+    /// The error code to indicate the use of noncontiguous audio to request a match.
     case audioDiscontinuity = 101
     
-    /// Failed to create a signature from the provided audio
-    /// Validate the audio you are supplying, it may be silent.
+    /// The error code to indicate that the audio input stream is unable to start.
+    case audioEngineFailed = 103
+    
+    /// The error code to indicate when a file URL isn't a valid audio type.
+    case invalidAudioFile = 104
+    
+    /// The error code to indicate that the system is unable to generate a signature from the audio.
     case signatureInvalid = 200
     
-    /// The signature duration is outside the valid range
-    /// The signature is valid but is too long/short for
-    /// the service attempting to match it
+    /// The error code to indicate that the length of the generated signature is too long or too short to make a match in the catalog.
     case signatureDurationInvalid = 201
     
-    /// The request to match the signature failed
-    /// The attempt failed and was not matched, trying again may result in 
-    /// This code does not indicate a 'No Match'
+    /// The error code to indicate when the signature fails to save at a particular destination URL .
+    case signatureSaveAttemptFailed = 205
+    
+    /// The error code to indicate when a Custom catalog issue prevents finding a match.
     case matchAttemptFailed = 202
     
-    /// Failed to load the Custom Catalog
-    /// Validate the structure of the Catalog file
+    /// The error code to indicate that the format for the custom catalog URL is invalid.
     case customCatalogInvalid = 300
     
-    /// The Custom Catalog URL was invalid
-    /// The URL must be a filePath URL that contains a valid Catalog
+    /// The error code to indicate when the custom catalog fails to load due to an invalid format.
     case customCatalogInvalidURL = 301
     
-    case audioEngineFailed = 401
-    
-    case customCatalogSaveAttemptFailed = 402
-    
-    case maximumCatalogItemsExceeded = 403
-    
-    case invalidAudioFile = 404
-    
-    case signatureSaveAttemptFailed = 405
-    
+    /// The error code to indicate when the custom catalog fails to save at a particular destination URL.
+    case customCatalogSaveAttemptFailed = 302
 }
