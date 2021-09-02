@@ -8,13 +8,17 @@
 import Foundation
 import ShazamKit
 
+/// Constants for the media item property names.
 public struct SCMediaItemProperty: Hashable, Equatable, RawRepresentable {
-    public var rawValue: String
+    /// The raw value of the property key
+    public let rawValue: String
     
+    /// Creates a property key for the specified property.
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
     
+    /// Creates a property key for the specified property.
     public init(_ rawValue: String) {
         self.rawValue = rawValue
     }
