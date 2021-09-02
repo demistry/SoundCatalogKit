@@ -145,7 +145,7 @@
 			children = (
 				34DAD2ED26E12AEA00FB9972 /* Documentation */,
 				34DAD2EB26E12AC700FB9972 /* Resources */,
-				34DAD2E726E12A0B00FB9972 /* Source */,
+				34DAD2E726E12A0B00FB9972 /* Sources */,
 			);
 			path = SoundCatalogKit;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
-		34DAD2E726E12A0B00FB9972 /* Source */ = {
+		34DAD2E726E12A0B00FB9972 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				34DAD2EF26E12B6D00FB9972 /* Network */,
@@ -190,7 +190,7 @@
 				34DAD2E826E12A1B00FB9972 /* Error */,
 				34DAD2E626E129ED00FB9972 /* Session */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		34DAD2E826E12A1B00FB9972 /* Error */ = {
