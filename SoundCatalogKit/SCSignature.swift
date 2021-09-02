@@ -36,7 +36,11 @@ public class SCSignature: NSObject {
             destinationURL = destinationURL.appendingPathComponent(Constants.defaultSignatureName)
                 .appendingPathExtension(Constants.signatureFileExtension)
         }
-        try signature.dataRepresentation.write(to: destinationURL, options: .atomic)
+        do {
+            try signature.dataRepresentation.write(to: destinationURL, options: .atomic)
+        } catch {
+            throw SCError(shError: error, defaultErrorCode: .signatureSaveAttemptFailed)
+        }
     }
 }
 

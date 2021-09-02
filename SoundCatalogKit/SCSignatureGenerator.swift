@@ -78,7 +78,6 @@ public class SCSignatureGenerator {
         if streamer.isStreaming {
             return
         }
-        print("Streaming....")
         streamer.delegate = self
         streamer.beginStreaming()
     }
@@ -122,7 +121,6 @@ extension SCSignatureGenerator: StreamerDelegate {
         didUpdateAudioStream buffer: AVAudioPCMBuffer,
         withTime time: AVAudioTime?
     ) {
-        print("Streaming received...")
         try? self.append(buffer, at: time)
     }
     

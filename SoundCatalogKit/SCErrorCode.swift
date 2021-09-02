@@ -48,6 +48,6 @@ public enum SCErrorCode: Int {
     
     case invalidAudioFile = 404
     
-    case invalidSignaturePath = 405
+    case signatureSaveAttemptFailed = 405
     
 }
