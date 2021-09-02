@@ -42,7 +42,7 @@ public class SCSignature: NSObject {
     /// If the `url` is a valid directory, a file named Signature.shazamsignature will be created.
     /// - Parameters:
     ///     - url: The location to write to.
-    /// - Throws: a ``SCErrorCode.signatureSaveAttemptFailed`` error on failure to write signature to url.
+    /// - Throws: an error on failure to write signature to url.
     public func write(to url: URL) throws {
         var destinationURL = url
         if destinationURL.pathExtension != Constants.signatureFileExtension ||

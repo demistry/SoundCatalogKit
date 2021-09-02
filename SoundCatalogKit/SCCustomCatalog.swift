@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 
-/// Configure a custom catalog of ``SCSignature`` objects to match against.
+/// An object for storing the reference signatures for custom audio recordings and their associated metadata.
 ///
 /// Use a custom catalog if you intend to search against reference signatures that you have provided yourself. All matches will be performed locally on the device against the signatures added to this Catalog.
 /// ``SCMediaItem`` can be built using custom data that will be returned when a match is made.

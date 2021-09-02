@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Base protocol that all downloader objects conform to.
 protocol SCDownloader {
     func downloadDataFromURL(_ url: URL) async throws -> Data
     func downloadFileFromURL(_ url: URL) async throws -> URL
