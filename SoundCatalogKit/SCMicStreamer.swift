@@ -12,12 +12,13 @@ typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
 
 class SCMicStreamer: SCStreamer {
     private var audioEngine: AVAudioEngine
+    
     var isStreaming: Bool {
         audioEngine.isRunning
     }
-    
-    var didUpdateAudioStream: AudioStreamUpdate = {_,_ in}
+    var didUpdateAudioStream: AudioStreamUpdate = {_, _ in}
     var streamingFailed: ((Error) throws -> Void)?
+    weak var delegate: StreamerDelegate?
     
     init() {
         audioEngine = AVAudioEngine()
@@ -31,13 +32,20 @@ class SCMicStreamer: SCStreamer {
             bufferSize: Constants.bufferSize,
             format: audioFormat
         ) { [weak self] buffer, audioTime in
-            try? (self?.didUpdateAudioStream)!(buffer, audioTime)
+            guard let self = self else { return }
+            self.delegate?.streamer(self, didUpdateAudioStream: buffer, withTime: audioTime)
+            try? self.didUpdateAudioStream(buffer, audioTime)
         }
         
         do {
             try audioEngine.start()
         } catch {
             try? streamingFailed?(SCError(
+                code: .audioEngineFailed,
+                description: "Audio engine failed to start. Error: \(error.localizedDescription)"
+                )
+            )
+            delegate?.streamer(self, didFail: SCError(
                 code: .audioEngineFailed,
                 description: "Audio engine failed to start. Error: \(error.localizedDescription)"
                 )

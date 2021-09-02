@@ -8,9 +8,15 @@
 import Foundation
 import ShazamKit
 
+public protocol SCSignatureGeneratorDelegate: AnyObject {
+    func signatureGenerator(_ signatureGenerator: SCSignatureGenerator,
+                            failedToGenerateFromAudioInput error: Error
+    )
+}
+
 public class SCSignatureGenerator {
     private var signatureGenerator: SHSignatureGenerator
-    private lazy var streamer: SCStreamer = {
+    private lazy var streamer: SCMicStreamer = {
         let streamer = SCMicStreamer()
         return streamer
     }()
@@ -19,6 +25,7 @@ public class SCSignatureGenerator {
         let downloader = SCDownloadManager()
         return downloader
     }()
+    public weak var delegate: SCSignatureGeneratorDelegate?
     
     public init() {
         signatureGenerator = SHSignatureGenerator()
@@ -71,24 +78,14 @@ public class SCSignatureGenerator {
         if streamer.isStreaming {
             return
         }
-        streamer.streamingFailed = { error in
-            throw error
-        }
+        print("Streaming....")
+        streamer.delegate = self
         streamer.beginStreaming()
-        repeat {
-            streamer.didUpdateAudioStream = { [weak self] buffer, audioTime in
-                do {
-                    try self?.append(buffer, at: audioTime)
-                } catch {
-                    throw error
-                }
-            }
-            
-        } while streamer.isStreaming
     }
     
     public func stopGeneratingSignatureFromAudioStream() {
         if streamer.isStreaming {
+            streamer.delegate = nil
             streamer.endStreaming()
         }
     }
@@ -116,5 +113,20 @@ public class SCSignatureGenerator {
 extension SCSignatureGenerator {
     private enum Constants {
         static let defaultSampleRate: Double = 44100
+    }
+}
+
+extension SCSignatureGenerator: StreamerDelegate {
+    func streamer(
+        _ streamer: SCStreamer,
+        didUpdateAudioStream buffer: AVAudioPCMBuffer,
+        withTime time: AVAudioTime?
+    ) {
+        print("Streaming received...")
+        try? self.append(buffer, at: time)
+    }
+    
+    func streamer(_ streamer: SCStreamer, didFail error: Error) {
+        delegate?.signatureGenerator(self, failedToGenerateFromAudioInput: error)
     }
 }
