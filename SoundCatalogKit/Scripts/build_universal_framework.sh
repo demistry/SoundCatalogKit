@@ -9,28 +9,38 @@
 SCHEME_NAME="SoundCatalogKit"
 FRAMEWORK_NAME="SoundCatalogKit"
 
-SIMULATOR_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive"
-DEVICE_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive"
+iOS_SIMULATOR_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive"
+iOS_DEVICE_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive"
+MACOS_ARCHIVE_PATH="${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-macos.xcarchive"
 OUTPUT_DIC="./UniversalFramework/"
 
-# Simulator xcarchive
+# iOS Simulator xcarchive
 xcodebuild archive \
   -scheme ${SCHEME_NAME} \
-  -archivePath ${SIMULATOR_ARCHIVE_PATH} \
+  -archivePath ${iOS_SIMULATOR_ARCHIVE_PATH} \
   -sdk iphonesimulator \
   SKIP_INSTALL=NO
   
-# Device xcarchive
+# iOS Device xcarchive
 xcodebuild archive \
   -scheme ${SCHEME_NAME} \
-  -archivePath ${DEVICE_ARCHIVE_PATH} \
+  -archivePath ${iOS_DEVICE_ARCHIVE_PATH} \
   -sdk iphoneos \
   SKIP_INSTALL=NO
+  
+# MacOS xcarchive
+xcodebuild archive \
+  -scheme ${SCHEME_NAME} \
+  -archivePath ${MACOS_ARCHIVE_PATH} \
+  SKIP_INSTALL=NO
+  
+## Add WatchOS and TvOS archives if required...
 
 # Clean up old output directory
 rm -rf "${OUTPUT_DIC}"
 # Create xcframwork combination of all frameworks
 xcodebuild -create-xcframework \
-  -framework ${SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
-  -framework ${DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
+  -framework ${iOS_SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
+  -framework ${iOS_DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
+  -framework ${MACOS_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \
   -output ${OUTPUT_DIC}/${FRAMEWORK_NAME}.xcframework

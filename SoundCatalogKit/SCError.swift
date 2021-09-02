@@ -9,7 +9,7 @@ import Foundation
 import ShazamKit
 
 class SCError: NSError {
-    private let bundleId = Bundle.main.bundleIdentifier ?? "shazam"
+    private let bundleId = Bundle.main.infoDictionary?["BUNDLE_ID"] as? String ?? "shazam"
 
     init(code: SCErrorCode, description: String) {
         super.init(

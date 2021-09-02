@@ -86,6 +86,7 @@
 		34A7BC4F26DDFF650076F6A3 /* SCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSession.swift; sourceTree = "<group>"; };
 		34B533CB26E0047B006FCEE4 /* SCDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloadManager.swift; sourceTree = "<group>"; };
 		34B533CD26E00D01006FCEE4 /* SCDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDownloader.swift; sourceTree = "<group>"; };
+		34DAD2DC26E09CDF00FB9972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +137,7 @@
 		34A7BC3726DDEFCC0076F6A3 /* SoundCatalogKit */ = {
 			isa = PBXGroup;
 			children = (
+				34DAD2DC26E09CDF00FB9972 /* Info.plist */,
 				34A7BC3926DDEFCC0076F6A3 /* SoundCatalogKit.docc */,
 				34A7BC3826DDEFCC0076F6A3 /* SoundCatalogKit.h */,
 				3490866826DEBBF20088C9EB /* SCCustomCatalog.swift */,
@@ -372,6 +374,7 @@
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUNDLE_ID = com.davidemi.SoundCatalogKit;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -444,6 +447,7 @@
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUNDLE_ID = com.davidemi.SoundCatalogKit;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -509,6 +513,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUNDLE_ID = com.davidemi.SoundCatalogKit;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -517,6 +522,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoundCatalogKit/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -545,6 +551,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUNDLE_ID = com.davidemi.SoundCatalogKit;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -553,6 +560,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoundCatalogKit/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
