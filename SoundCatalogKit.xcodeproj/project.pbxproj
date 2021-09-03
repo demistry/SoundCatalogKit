@@ -55,8 +55,8 @@
 		34DAD30F26E1B1C800FB9972 /* SCMediaItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */; };
 		34DAD31226E1B59800FB9972 /* SCSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD31126E1B59800FB9972 /* SCSessionTests.swift */; };
 		34DAD31426E1BBAA00FB9972 /* MyCatalog.shazamcatalog in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD31326E1BBAA00FB9972 /* MyCatalog.shazamcatalog */; };
-		34F287B326E256A80042F6FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F287B126E256A80042F6FA /* README.md */; };
-		34F287B726E259180042F6FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F287B626E259180042F6FA /* README.md */; };
+		34F287B726E259180042F6FA /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F287B626E259180042F6FA /* ReadMe.md */; };
+		34F287B926E25B1F0042F6FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F287B826E25B1F0042F6FA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +121,8 @@
 		34DAD31126E1B59800FB9972 /* SCSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionTests.swift; sourceTree = "<group>"; };
 		34DAD31326E1BBAA00FB9972 /* MyCatalog.shazamcatalog */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyCatalog.shazamcatalog; sourceTree = "<group>"; };
 		34DAD33626E1CEFD00FB9972 /* ExampleApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ExampleApp.xcodeproj; path = ExampleApp/ExampleApp.xcodeproj; sourceTree = "<group>"; };
-		34F287B126E256A80042F6FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		34F287B626E259180042F6FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ExampleApp/README.md; sourceTree = "<group>"; };
+		34F287B626E259180042F6FA /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ReadMe.md; path = ExampleApp/ReadMe.md; sourceTree = "<group>"; };
+		34F287B826E25B1F0042F6FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 		34A7BC3726DDEFCC0076F6A3 /* SoundCatalogKit */ = {
 			isa = PBXGroup;
 			children = (
-				34F287B126E256A80042F6FA /* README.md */,
+				34F287B826E25B1F0042F6FA /* README.md */,
 				34DAD31526E1CEB800FB9972 /* ExampleApp */,
 				34DAD2ED26E12AEA00FB9972 /* Documentation */,
 				34DAD2EB26E12AC700FB9972 /* Resources */,
@@ -351,7 +351,7 @@
 		34DAD31526E1CEB800FB9972 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				34F287B626E259180042F6FA /* README.md */,
+				34F287B626E259180042F6FA /* ReadMe.md */,
 				34DAD33626E1CEFD00FB9972 /* ExampleApp.xcodeproj */,
 			);
 			path = ExampleApp;
@@ -477,8 +477,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F287B726E259180042F6FA /* README.md in Resources */,
-				34F287B326E256A80042F6FA /* README.md in Resources */,
+				34F287B926E25B1F0042F6FA /* README.md in Resources */,
+				34F287B726E259180042F6FA /* ReadMe.md in Resources */,
 				34DAD2F126E12CD500FB9972 /* SoundCatalogKit.doccarchive in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,7 +744,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = A8SA62ZA26;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -782,7 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = A8SA62ZA26;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -817,7 +817,7 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A8SA62ZA26;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -840,7 +840,7 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A8SA62ZA26;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
