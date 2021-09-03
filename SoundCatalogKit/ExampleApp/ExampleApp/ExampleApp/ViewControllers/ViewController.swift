@@ -18,9 +18,6 @@ class ViewController: UIViewController {
         tableView.register(ActionsTableViewCell.nib, forCellReuseIdentifier: ActionsTableViewCell.identifier)
         tableView.reloadData()
     }
-    @IBAction func playSongFromDeviceDuringMatch(_ sender: Any) {
-        
-    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

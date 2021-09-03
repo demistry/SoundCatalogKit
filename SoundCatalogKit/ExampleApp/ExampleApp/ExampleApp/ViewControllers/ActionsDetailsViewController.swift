@@ -23,6 +23,7 @@ class ActionsDetailsViewController: UIViewController {
     }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var storyLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var action: FrameworkActions!
     var playAudioWhenMatchStarts: Bool = true
@@ -31,6 +32,7 @@ class ActionsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.stopAnimating()
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -45,11 +47,12 @@ class ActionsDetailsViewController: UIViewController {
             audioPlayer?.stop()
             return
         }
-        
+        activityIndicator.startAnimating()
         Task {
             if let catalog = try await CatalogProvider.catalog(state: action) {
                 session = SCSession(catalog: catalog)
                 session?.delegate = self
+                activityIndicator.stopAnimating()
                 if playAudioWhenMatchStarts {
                     try? AVAudioSession.sharedInstance().setCategory(.playAndRecord)
                     audioPlayer = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "BabyShark", withExtension: "m4a")!)
@@ -66,6 +69,8 @@ class ActionsDetailsViewController: UIViewController {
                         self.session?.startMatching()
                     }
                 }
+            } else {
+                activityIndicator.stopAnimating()
             }
         }
         

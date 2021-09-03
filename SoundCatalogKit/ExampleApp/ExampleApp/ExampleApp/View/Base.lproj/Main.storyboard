@@ -121,6 +121,9 @@
                                     <action selector="stopMatching:" destination="AJN-IB-0ux" eventType="touchUpInside" id="BWA-89-Fj8"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1FF-NF-DLV">
+                                <rect key="frame" x="197" y="487" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iu8-ef-dkG"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,12 +134,15 @@
                             <constraint firstItem="iu8-ef-dkG" firstAttribute="bottom" secondItem="JL5-BZ-336" secondAttribute="bottom" constant="32" id="MF3-ig-nQG"/>
                             <constraint firstItem="lxJ-EW-zs2" firstAttribute="leading" secondItem="iu8-ef-dkG" secondAttribute="leading" id="N0Z-4j-x9H"/>
                             <constraint firstItem="cik-KS-mlg" firstAttribute="centerY" secondItem="iu8-ef-dkG" secondAttribute="centerY" id="TZX-Yv-dkf"/>
+                            <constraint firstItem="1FF-NF-DLV" firstAttribute="top" secondItem="cik-KS-mlg" secondAttribute="bottom" constant="16" id="XCv-u3-Z00"/>
                             <constraint firstItem="JL5-BZ-336" firstAttribute="top" secondItem="7dQ-Hg-Swi" secondAttribute="bottom" constant="32" id="ZWD-1F-OPb"/>
                             <constraint firstItem="iu8-ef-dkG" firstAttribute="trailing" secondItem="lxJ-EW-zs2" secondAttribute="trailing" id="a0f-x4-i2D"/>
                             <constraint firstItem="7dQ-Hg-Swi" firstAttribute="centerX" secondItem="JL5-BZ-336" secondAttribute="centerX" id="fOW-Af-wU8"/>
+                            <constraint firstItem="1FF-NF-DLV" firstAttribute="centerX" secondItem="cik-KS-mlg" secondAttribute="centerX" id="mKt-si-iQn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="1FF-NF-DLV" id="vSN-Tz-zqy"/>
                         <outlet property="imageView" destination="lxJ-EW-zs2" id="vaL-3O-fEi"/>
                         <outlet property="storyLabel" destination="cik-KS-mlg" id="2LN-uz-ZHR"/>
                     </connections>

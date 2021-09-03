@@ -14,9 +14,9 @@ struct CatalogProvider {
         case .AddReferenceSignatureFromAudioFile, .CreateSignatureFromAudioFile: 
             return try addSignatureFromAudioFile()
         case .AddCatalogFromRemote:
-            return try addCatalogFromRemote()
+            return try await addCatalogFromRemote()
         case .DownloadSignatureFromURL, .AddReferenceSignatureFromRemote:
-            return try addSignatureFromRemoteURL()
+            return try await addSignatureFromRemoteURL()
         case .AddReferenceSignatureToCatalog:
             return try addSignatureFromLocalSource()
         case .AddCatalogFromLocalSource:
@@ -36,8 +36,16 @@ struct CatalogProvider {
         return customCatalog
     }
     
-    private static func addCatalogFromRemote() throws -> SCCatalog? {
-        return nil
+    private static func addCatalogFromRemote() async throws -> SCCatalog? {
+        let directDownloadLink = URL(string: "https://drive.google.com/uc?id=1G5FEwmHJGU9c9Gnbt0gGTDlSjSvhbmaU&export=download")!
+        let customCatalog = SCCustomCatalog()
+        do {
+            try await customCatalog.addRemoteCatalog(fromRemoteURL: directDownloadLink)
+        } catch {
+            print("Error with downloading catalog file \(error)")
+        }
+        print("PLAYING FROM REMOTE CATALOG")
+        return customCatalog
     }
     
     private static func addCatalogFromLocalSource() throws -> SCCatalog? {
@@ -50,8 +58,19 @@ struct CatalogProvider {
         return customCatalog
     }
     
-    private static func addSignatureFromRemoteURL() throws -> SCCatalog? {
-        return nil
+    private static func addSignatureFromRemoteURL() async throws -> SCCatalog? {
+        let directDownloadLink = URL(string: "https://drive.google.com/uc?id=1ZMu7qH6q2UfA4kL17PXS64XJkTSptgl1&export=download")!
+        let customCatalog = SCCustomCatalog()
+        let signatureGenerator = SCSignatureGenerator()
+        do {
+            print("Downloading signature file...")
+            let signature = try await signatureGenerator.downloadSignatureFromRemoteURL(directDownloadLink)
+            try customCatalog.addReferenceSignature(signature, representing: [])
+        } catch {
+            print("Error with downloading signature file \(error)")
+        }
+        print("PLAYING FROM REMOTE SIGNATURE FILE")
+        return customCatalog
     }
     
     private static func addSignatureFromLocalSource() throws -> SCCatalog? {
