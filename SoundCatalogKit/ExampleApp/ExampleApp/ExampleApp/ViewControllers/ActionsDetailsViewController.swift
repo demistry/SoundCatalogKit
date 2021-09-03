@@ -25,8 +25,8 @@ class ActionsDetailsViewController: UIViewController {
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var uiSwitch: UISwitch!
     var action: FrameworkActions!
-    var playAudioWhenMatchStarts: Bool = true
     private var session: SCSession?
     private var audioPlayer: AVAudioPlayer?
     
@@ -53,7 +53,7 @@ class ActionsDetailsViewController: UIViewController {
                 session = SCSession(catalog: catalog)
                 session?.delegate = self
                 activityIndicator.stopAnimating()
-                if playAudioWhenMatchStarts {
+                if uiSwitch.isOn {
                     try? AVAudioSession.sharedInstance().setCategory(.playAndRecord)
                     audioPlayer = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "BabyShark", withExtension: "m4a")!)
                     audioPlayer?.prepareToPlay()
