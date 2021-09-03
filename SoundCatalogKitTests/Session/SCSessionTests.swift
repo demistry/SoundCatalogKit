@@ -12,13 +12,11 @@ import ShazamKit
 class SCSessionTests: XCTestCase, SCSessionDelegate {
     private var session: SCSession!
     private var streamerMock: SCStreamerMock!
-    private var customCatalogMock: SCCustomCatalogMock!
     private var sessionResultSource: SCSessionResultSource!
     override func setUpWithError() throws {
         sessionResultSource = SCSessionResultSource()
         streamerMock = SCStreamerMock()
-        customCatalogMock = SCCustomCatalogMock(downloader: SCDownloaderMock(isSuccessful: true))
-        session = SCSession(catalog: customCatalogMock, streamer: streamerMock)
+        session = SCSession(streamer: streamerMock)
         session.delegate = self
         sessionResultSource.delegate = session
     }
@@ -27,7 +25,6 @@ class SCSessionTests: XCTestCase, SCSessionDelegate {
         session = nil
         sessionResultSource = nil
         streamerMock = nil
-        customCatalogMock = nil
         XCTAssertNil(session?.delegate)
         XCTAssertNil(sessionResultSource?.delegate)
     }

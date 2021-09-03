@@ -36,7 +36,7 @@ protocol SCSessionProtocol: AnyObject {
 /// Searching the custom catalog is asynchronous. The session calls your delegate methods with the result.
 /// Ensure microphone permissions are duly requested and granted by the user before attempting a match.
 public class SCSession: NSObject, SCSessionProtocol {
-    private var session: SHSession!
+    private var session: SHSession
     private var streamer: SCStreamer!
     private var sessionResultSource: SCSessionResultSource!
     
@@ -49,18 +49,19 @@ public class SCSession: NSObject, SCSessionProtocol {
     public weak var delegate: SCSessionDelegate?
     
     private override init() {
+        session = SHSession()
         super.init()
     }
     
-    convenience init(catalog: SCCatalog, streamer: SCStreamer) {
-        self.init(catalog: catalog)
+    convenience init(streamer: SCStreamer) {
+        self.init()
         self.streamer = streamer
     }
     
     /// Creates a new session for matching audio in a custom catalog.
-    public convenience init(catalog: SCCatalog) {
-        self.init()
+    public init(catalog: SCCatalog) {
         session = SHSession(catalog: catalog.getCustomCatalog().customShazamCatalog)
+        super.init()
         sessionResultSource = SCSessionResultSource()
         streamer = SCMicStreamer()
         setupMatcher()
