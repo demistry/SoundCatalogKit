@@ -52,6 +52,9 @@
 		34DAD2FF26E1920E00FB9972 /* SCSignatureGeneratorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD2FE26E1920E00FB9972 /* SCSignatureGeneratorMock.swift */; };
 		34DAD30426E1A94D00FB9972 /* FoodMathAudio.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD30126E1A6EA00FB9972 /* FoodMathAudio.m4a */; };
 		34DAD30626E1AA7600FB9972 /* AudioSignature.shazamsignature in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD30526E1AA7600FB9972 /* AudioSignature.shazamsignature */; };
+		34DAD30826E1AC5800FB9972 /* SCSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30726E1AC5800FB9972 /* SCSignatureTests.swift */; };
+		34DAD30A26E1AC9B00FB9972 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30926E1AC9B00FB9972 /* Constants.swift */; };
+		34DAD30D26E1AF3E00FB9972 /* SCAudioConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		34DAD2FE26E1920E00FB9972 /* SCSignatureGeneratorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignatureGeneratorMock.swift; sourceTree = "<group>"; };
 		34DAD30126E1A6EA00FB9972 /* FoodMathAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoodMathAudio.m4a; sourceTree = "<group>"; };
 		34DAD30526E1AA7600FB9972 /* AudioSignature.shazamsignature */ = {isa = PBXFileReference; lastKnownFileType = file; path = AudioSignature.shazamsignature; sourceTree = "<group>"; };
+		34DAD30726E1AC5800FB9972 /* SCSignatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignatureTests.swift; sourceTree = "<group>"; };
+		34DAD30926E1AC9B00FB9972 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAudioConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 		34A7BC4326DDEFCD0076F6A3 /* SoundCatalogKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				34DAD30B26E1AF2E00FB9972 /* Audio */,
 				34DAD30026E1A6C500FB9972 /* Resources */,
 				34DAD2F726E189EB00FB9972 /* SignatureTests */,
 				34DAD2F226E137ED00FB9972 /* CatalogTests */,
@@ -181,6 +188,7 @@
 				34DAD2FA26E18BFE00FB9972 /* SCStreamerMock.swift */,
 				34DAD2FC26E18CB200FB9972 /* SCDownloaderMock.swift */,
 				34DAD2FE26E1920E00FB9972 /* SCSignatureGeneratorMock.swift */,
+				34DAD30926E1AC9B00FB9972 /* Constants.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				34DAD2F826E18A0700FB9972 /* SCSignatureGeneratorTests.swift */,
+				34DAD30726E1AC5800FB9972 /* SCSignatureTests.swift */,
 			);
 			path = SignatureTests;
 			sourceTree = "<group>";
@@ -307,6 +316,14 @@
 				34DAD30126E1A6EA00FB9972 /* FoodMathAudio.m4a */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		34DAD30B26E1AF2E00FB9972 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,12 +490,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				34DAD2FD26E18CB200FB9972 /* SCDownloaderMock.swift in Sources */,
+				34DAD30D26E1AF3E00FB9972 /* SCAudioConverterTests.swift in Sources */,
 				34DAD2F926E18A0700FB9972 /* SCSignatureGeneratorTests.swift in Sources */,
 				34DAD2F426E1380000FB9972 /* SCCustomCatalogTests.swift in Sources */,
 				34DAD2FF26E1920E00FB9972 /* SCSignatureGeneratorMock.swift in Sources */,
+				34DAD30826E1AC5800FB9972 /* SCSignatureTests.swift in Sources */,
 				34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */,
 				34DAD2FB26E18BFE00FB9972 /* SCStreamerMock.swift in Sources */,
 				34DAD2E526E121C700FB9972 /* SCCustomCatalogMock.swift in Sources */,
+				34DAD30A26E1AC9B00FB9972 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
