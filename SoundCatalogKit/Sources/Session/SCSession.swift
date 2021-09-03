@@ -8,18 +8,47 @@
 import AVFAudio
 import ShazamKit
 
-protocol SCSessionProtocol: AnyObject {
-    func startMatching()
-    func stopMatching()
-}
-
-@objc public protocol SCSessionDelegate: AnyObject {
+/// All communication about matches is performed through this delegate.
+@objc public protocol SCSessionDelegate: NSObjectProtocol {
+    
+    /// Tells the delegate that the query signature matches an item in the catalog.
+    /// 
+    /// - Parameters:
+    ///     - session: The session object that made the match
+    ///     - match: The matching items from the catalog.
     @objc optional func session(_ session: SCSession, didFind match: SCMatch)
+    
+    /// Tells the delegate the query signature does not match an item in the catalog or there is an error
+    /// 
+    /// You can retry the match if the error indicates an issue in communicating with the catalog server, such as `SCErrorCode.matchAttemptfailed`.
+    /// 
+    /// - Parameters:
+    ///     - session: The session object that made the match
+    ///     - signature: The query signature used for the match
+    ///     - error: The error that occurs; otherwise, nil, which indicates that there’s no match.
     @objc optional func session(_ session: SCSession, 
                                 didNotFindMatchFor signature: SCSignature, 
                                 error: Error?)
+    
+    /// Matching against microphone was unable to start due to an error
+    /// 
+    /// You should obtain microphone permissions if the error returned is `SCErrorCode.audioEngineFailed`
+    /// 
+    /// - Parameters:
+    ///     - session: The session object that attempted the match
+    ///     - error: The error returned for why the match failed
     @objc optional func session(_ session: SCSession, failedToMatchDueTo error: Error)
+    
+    /// Matching against microphone started successfully
+    /// 
+    /// - Parameters:
+    ///     - session: The session object that started the match
     @objc optional func sessionDidStartMatch(_ session: SCSession)
+    
+    /// Matching against microphone stopped
+    /// 
+    /// - Parameters:
+    ///     - session: The session object that stopped the match
     @objc optional func sessionDidStopMatch(_ session: SCSession)
 } 
 
@@ -29,13 +58,14 @@ protocol SCSessionProtocol: AnyObject {
 /// - Creating a session for the catalog that contains the reference signatures
 /// - Adding your delegate that receives the match results
 /// 
-/// Search for a match by calling startMatching() .
+/// Search for a match by calling `startMatching()` .
 /// 
-/// Call stopMatching() to stop the input audio stream.
+/// Call `stopMatching()` to stop the input audio stream.
 /// 
 /// Searching the custom catalog is asynchronous. The session calls your delegate methods with the result.
-/// Ensure microphone permissions are duly requested and granted by the user before attempting a match.
-public class SCSession: NSObject, SCSessionProtocol {
+/// 
+/// > Important: **Ensure microphone permissions are duly requested and granted by the user before attempting a match.**
+public class SCSession: NSObject {
     private var session: SHSession
     private var streamer: SCStreamer!
     private var sessionResultSource: SCSessionResultSource!
@@ -59,6 +89,9 @@ public class SCSession: NSObject, SCSessionProtocol {
     }
     
     /// Creates a new session for matching audio in a custom catalog.
+    /// 
+    /// - Parameters:
+    ///     - catalog: The custom catalog to match against using this session
     public init(catalog: SCCatalog) {
         session = SHSession(catalog: catalog.getCustomCatalog().customShazamCatalog)
         super.init()
