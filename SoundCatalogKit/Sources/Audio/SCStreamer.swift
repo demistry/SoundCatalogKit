@@ -21,8 +21,8 @@ protocol StreamerDelegate: AnyObject {
 /// Base protocol that all streaming objects conform to
 protocol SCStreamer {
     var isStreaming: Bool { get }
-    var didUpdateAudioStream: (AVAudioPCMBuffer, AVAudioTime?) throws -> Void { get set }
-    var streamingFailed: ((Error) throws -> Void)? { get set }
+    var didUpdateAudioStream: (AVAudioPCMBuffer, AVAudioTime?) -> Void { get set }
+    var streamingFailed: ((Error) -> Void)? { get set }
     var delegate: StreamerDelegate? { get set }
     
     func beginStreaming()

@@ -20,15 +20,8 @@ public protocol SCSignatureGeneratorDelegate: AnyObject {
 /// Create both reference and query signatures using this class.
 public class SCSignatureGenerator {
     private var signatureGenerator: SHSignatureGenerator
-    private lazy var streamer: SCMicStreamer = {
-        let streamer = SCMicStreamer()
-        return streamer
-    }()
-    
-    private lazy var downloader: SCDownloader = {
-        let downloader = SCDownloadManager()
-        return downloader
-    }()
+    private var streamer: SCStreamer
+    private var downloader: SCDownloader
     
     /// The object that the generator calls when an error occurs when generating a signature from an audio stream.
     public weak var delegate: SCSignatureGeneratorDelegate?
@@ -36,6 +29,14 @@ public class SCSignatureGenerator {
     /// Create an instance of an ``SCSignatureGenerator``
     public init() {
         signatureGenerator = SHSignatureGenerator()
+        downloader = SCDownloadManager()
+        streamer = SCMicStreamer()
+    }
+    
+    init(streamer: SCStreamer, downloader: SCDownloader) {
+        signatureGenerator = SHSignatureGenerator()
+        self.streamer = streamer
+        self.downloader = downloader
     }
     
     /// Adds audio to the generator.
@@ -114,7 +115,7 @@ public class SCSignatureGenerator {
     /// Starts generating a signature from a continous audio stream.
     /// 
     /// Signature keeps generating until ``stopGeneratingSignatureFromAudioStream()`` is called and the generator holds a reference to the signature generated up until this call is made.
-    public func generateSignatureFromAudioStream() throws {
+    public func generateSignatureFromAudioStream() {
         if streamer.isStreaming {
             return
         }

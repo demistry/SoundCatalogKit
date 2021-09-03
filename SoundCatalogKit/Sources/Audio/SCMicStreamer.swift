@@ -8,7 +8,7 @@
 import AVFAudio
 import Foundation
 
-typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) throws -> Void)
+typealias AudioStreamUpdate = ((AVAudioPCMBuffer, AVAudioTime?) -> Void)
 
 /// Used to stream input audio from the microphone
 class SCMicStreamer: SCStreamer {
@@ -21,7 +21,7 @@ class SCMicStreamer: SCStreamer {
     var didUpdateAudioStream: AudioStreamUpdate = {_, _ in}
     
     /// Delivers an error that occured on an ongoing stream
-    var streamingFailed: ((Error) throws -> Void)?
+    var streamingFailed: ((Error) -> Void)?
     
     /// Delegate to send information on an ongoing stream
     weak var delegate: StreamerDelegate?
@@ -41,13 +41,13 @@ class SCMicStreamer: SCStreamer {
         ) { [weak self] buffer, audioTime in
             guard let self = self else { return }
             self.delegate?.streamer(self, didUpdateAudioStream: buffer, withTime: audioTime)
-            try? self.didUpdateAudioStream(buffer, audioTime)
+            self.didUpdateAudioStream(buffer, audioTime)
         }
         
         do {
             try audioEngine.start()
         } catch {
-            try? streamingFailed?(SCError(
+            streamingFailed?(SCError(
                 code: .audioEngineFailed,
                 description: "Audio engine failed to start. Error: \(error.localizedDescription)"
                 )
