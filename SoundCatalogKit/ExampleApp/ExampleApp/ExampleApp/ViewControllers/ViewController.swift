@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var uiSwitch: UISwitch!
     private let actions = FrameworkActions.allCases
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +18,8 @@ class ViewController: UIViewController {
         tableView.register(ActionsTableViewCell.nib, forCellReuseIdentifier: ActionsTableViewCell.identifier)
         tableView.reloadData()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    @IBAction func playSongFromDeviceDuringMatch(_ sender: Any) {
+        
     }
 }
 
@@ -43,6 +43,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let action = actions[indexPath.row]
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ActionsDetailsViewController") as! ActionsDetailsViewController
         vc.action = action
+        vc.playAudioWhenMatchStarts = uiSwitch.isOn
         navigationController?.pushViewController(vc, animated: true)
     }
 }

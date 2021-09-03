@@ -6,5 +6,7 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDarkContent</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Synchronize images &amp; text with Shark videos played for your children.</string>
 </dict>
 </plist>

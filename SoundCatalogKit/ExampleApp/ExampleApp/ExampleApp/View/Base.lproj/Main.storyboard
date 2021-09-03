@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PtL-kz-kxL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19142.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PtL-kz-kxL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19129"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,9 +32,20 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Z7-TY-edr" secondAttribute="bottom" id="heG-Dr-ftg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Actions" id="C5I-0f-HKm"/>
+                    <navigationItem key="navigationItem" title="Actions" id="C5I-0f-HKm">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="JgG-HU-7a9">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="uRn-KE-SkZ">
+                                <rect key="frame" x="343" y="6.5" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="playSongFromDeviceDuringMatch:" destination="BYZ-38-t0r" eventType="valueChanged" id="kMa-78-y5y"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="7Z7-TY-edr" id="gSl-NQ-9JA"/>
+                        <outlet property="uiSwitch" destination="uRn-KE-SkZ" id="exp-bP-sQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,10 +65,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="8gF-Qs-2nZ"/>
                                 </constraints>
-                                <imageReference key="image" image="LetsGoHunt"/>
+                                <imageReference key="image" image="SharkFamily"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITS THE END" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cik-KS-mlg">
-                                <rect key="frame" x="116" y="435" width="182" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S GOOOO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cik-KS-mlg">
+                                <rect key="frame" x="105" y="435" width="204.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
@@ -155,7 +166,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LetsGoHunt" width="1014" height="458"/>
+        <image name="SharkFamily" width="909" height="515"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

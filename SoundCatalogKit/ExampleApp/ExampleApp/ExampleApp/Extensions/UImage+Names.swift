@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImage {
+    static let sharkFamily = UIImage(named: "SharkFamily")
     static let babyShark = UIImage(named: "BabyShark")
     static let mummyShark = UIImage(named: "MummyShark")
     static let daddyShark = UIImage(named: "DaddyShark")

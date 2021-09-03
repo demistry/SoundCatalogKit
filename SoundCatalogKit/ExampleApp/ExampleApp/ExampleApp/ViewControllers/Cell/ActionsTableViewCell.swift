@@ -21,8 +21,4 @@ class ActionsTableViewCell: UITableViewCell {
             cellSubtitle.text = action.description
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }
