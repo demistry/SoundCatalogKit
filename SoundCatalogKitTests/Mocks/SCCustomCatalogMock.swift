@@ -20,6 +20,10 @@ class SCCustomCatalogMock: SCCatalog {
     var wroteCatalogToURL: ((URL) -> Void)?
     var isSuccessful: Bool =  true
     
+    init() {
+        customCatalog = SCCustomCatalog()
+    }
+    
     func addReferenceSignature(_ referenceSignature: SCSignature, representing mediaItems: [SCMediaItem]) throws {
         if isSuccessful {
             addedReferenceSignature?(referenceSignature, mediaItems)

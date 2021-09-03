@@ -37,12 +37,12 @@ protocol SCSessionProtocol: AnyObject {
 /// Ensure microphone permissions are duly requested and granted by the user before attempting a match.
 public class SCSession: NSObject, SCSessionProtocol {
     private var session: SHSession!
-    private var matcher: SCStreamer!
+    private var streamer: SCStreamer!
     private var sessionResultSource: SCSessionResultSource!
     
     /// A flag to check if the session is currently matching input audio stream
     public var isMatching: Bool {
-        matcher.isStreaming
+        streamer.isStreaming
     }
     
     /// The object that the session calls with the result of a match request.
@@ -52,12 +52,17 @@ public class SCSession: NSObject, SCSessionProtocol {
         super.init()
     }
     
+    convenience init(catalog: SCCatalog, streamer: SCStreamer) {
+        self.init(catalog: catalog)
+        self.streamer = streamer
+    }
+    
     /// Creates a new session for matching audio in a custom catalog.
     public convenience init(catalog: SCCatalog) {
         self.init()
         session = SHSession(catalog: catalog.getCustomCatalog().customShazamCatalog)
         sessionResultSource = SCSessionResultSource()
-        matcher = SCMicStreamer()
+        streamer = SCMicStreamer()
         setupMatcher()
         sessionResultSource.delegate = self
         session.delegate = sessionResultSource
@@ -66,21 +71,21 @@ public class SCSession: NSObject, SCSessionProtocol {
     /// Converts the continous input audio buffer to a signature, and searches the reference signatures in the session catalog.
     public func startMatching() {
         delegate?.sessionDidStartMatch?(self)
-        matcher.beginStreaming()
+        streamer.beginStreaming()
     }
     
     /// Stops searching the reference signatures in the session catalog.
     public func stopMatching() {
-        matcher.endStreaming()
+        streamer.endStreaming()
         delegate?.sessionDidStopMatch?(self)
     }
     
     private func setupMatcher() {
-        matcher.didUpdateAudioStream = {  [weak session] buffer, audioTime in
+        streamer.didUpdateAudioStream = {  [weak session] buffer, audioTime in
             guard let session = session else { return }
             session.matchStreamingBuffer(buffer, at: audioTime)
         }
-        matcher.streamingFailed = { [weak self] error in
+        streamer.streamingFailed = { [weak self] error in
             guard let self = self else { return }
             self.delegate?.session?(
                 self,

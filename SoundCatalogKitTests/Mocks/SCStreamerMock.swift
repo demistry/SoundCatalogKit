@@ -9,7 +9,7 @@ import Foundation
 @testable import SoundCatalogKit
 
 class SCStreamerMock: SCStreamer {
-    var isStreaming: Bool = false
+    private(set) var isStreaming: Bool = false
     
     var didUpdateAudioStream: (AVAudioPCMBuffer, AVAudioTime?) -> Void = {_,_ in}
     

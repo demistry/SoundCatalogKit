@@ -56,6 +56,7 @@
 		34DAD30A26E1AC9B00FB9972 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30926E1AC9B00FB9972 /* Constants.swift */; };
 		34DAD30D26E1AF3E00FB9972 /* SCAudioConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */; };
 		34DAD30F26E1B1C800FB9972 /* SCMediaItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */; };
+		34DAD31226E1B59800FB9972 /* SCSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD31126E1B59800FB9972 /* SCSessionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		34DAD30926E1AC9B00FB9972 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAudioConverterTests.swift; sourceTree = "<group>"; };
 		34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMediaItemTests.swift; sourceTree = "<group>"; };
+		34DAD31126E1B59800FB9972 /* SCSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSessionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 		34DAD31026E1B40C00FB9972 /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				34DAD31126E1B59800FB9972 /* SCSessionTests.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				34DAD30D26E1AF3E00FB9972 /* SCAudioConverterTests.swift in Sources */,
 				34DAD2F926E18A0700FB9972 /* SCSignatureGeneratorTests.swift in Sources */,
 				34DAD2F426E1380000FB9972 /* SCCustomCatalogTests.swift in Sources */,
+				34DAD31226E1B59800FB9972 /* SCSessionTests.swift in Sources */,
 				34DAD2FF26E1920E00FB9972 /* SCSignatureGeneratorMock.swift in Sources */,
 				34DAD30F26E1B1C800FB9972 /* SCMediaItemTests.swift in Sources */,
 				34DAD30826E1AC5800FB9972 /* SCSignatureTests.swift in Sources */,

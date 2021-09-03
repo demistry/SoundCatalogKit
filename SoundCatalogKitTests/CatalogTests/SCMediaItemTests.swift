@@ -5,9 +5,9 @@
 //  Created by David Ilenwabor on 03/09/2021.
 //
 
+import ShazamKit
 import XCTest
 @testable import SoundCatalogKit
-import ShazamKit
 
 class SCMediaItemTests: XCTestCase {
     private var mediaItem: SCMediaItem!
