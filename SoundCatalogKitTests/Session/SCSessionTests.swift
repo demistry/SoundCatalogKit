@@ -17,7 +17,7 @@ class SCSessionTests: XCTestCase, SCSessionDelegate {
     override func setUpWithError() throws {
         sessionResultSource = SCSessionResultSource()
         streamerMock = SCStreamerMock()
-        customCatalogMock = SCCustomCatalogMock()
+        customCatalogMock = SCCustomCatalogMock(downloader: SCDownloaderMock(isSuccessful: true))
         session = SCSession(catalog: customCatalogMock, streamer: streamerMock)
         session.delegate = self
         sessionResultSource.delegate = session

@@ -12,12 +12,10 @@ class SCSignatureGeneratorTests: XCTestCase {
     private var signatureGenerator: SCSignatureGenerator!
     private var streamerMock: SCStreamerMock!
     private var downloaderMock: SCDownloaderMock!
-    private var signatureGeneratorMock: SCSignatureGeneratorMock!
     override func setUpWithError() throws {
         streamerMock = SCStreamerMock()
         downloaderMock = SCDownloaderMock(isSuccessful: true)
-        signatureGenerator = SCSignatureGenerator()
-        signatureGeneratorMock = SCSignatureGeneratorMock(streamer: streamerMock, downloader: downloaderMock)
+        signatureGenerator = SCSignatureGenerator(streamer: streamerMock, downloader: downloaderMock)
     }
     
     override func tearDownWithError() throws {
@@ -37,18 +35,16 @@ class SCSignatureGeneratorTests: XCTestCase {
     }
     
     func test_downloadSignatureFromRemoteURL_succeeds() async {
-        let actualURL = URL(string: "http://test.com")!
-        signatureGeneratorMock = SCSignatureGeneratorMock(streamer: streamerMock, downloader: downloaderMock)
-        try! await signatureGeneratorMock.downloadSignatureFromRemoteURL(actualURL)
-        XCTAssertEqual(signatureGeneratorMock.testData, "Test".data(using: .utf8)!)
+        let actualURL = Constants.FoodMathAudioSignatureURL
+        downloaderMock = SCDownloaderMock(isSuccessful: true)
+        let _ = try! await signatureGenerator.downloadSignatureFromRemoteURL(actualURL)
     }
     
     func test_downloadSignatureFromRemoteURL_fails() async {
-        let actualURL = URL(string: "http://test.com")!
+        let actualURL = Constants.FoodMathAudioSignatureURL
         downloaderMock = SCDownloaderMock(isSuccessful: false)
-        signatureGeneratorMock = SCSignatureGeneratorMock(streamer: streamerMock, downloader: downloaderMock)
         do {
-            try await signatureGeneratorMock.downloadSignatureFromRemoteURL(actualURL)
+            let _ = try await signatureGenerator.downloadSignatureFromRemoteURL(actualURL)
         } catch {
             XCTAssertEqual(error as NSError, NSError(domain: "com.davidemi.soundcatalogkit", code: -1002, userInfo: [NSDebugDescriptionErrorKey: "Failed to download catalog/signature data from url"]))
         }

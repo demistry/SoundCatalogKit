@@ -11,6 +11,7 @@ class Constants {
     static let shared = Constants()
     static let FoodMathAudioURL = Bundle(for: type(of: shared)).url(forResource: "FoodMathAudio", withExtension: "m4a")!
     static let FoodMathAudioSignatureURL = Bundle(for: type(of: shared)).url(forResource: "AudioSignature", withExtension: "shazamsignature")!
+    static let FoodMathAudioCustomCatalogURL = Bundle(for: type(of: shared)).url(forResource: "MyCatalog", withExtension: "shazamcatalog")!
     
     private init() {}
 }

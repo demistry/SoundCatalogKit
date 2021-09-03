@@ -16,12 +16,26 @@ import ShazamKit
 public class SCCustomCatalog: SCCatalog {
     
     private(set) var customShazamCatalog: SHCustomCatalog
-    private var downloader: SCDownloader {
-        return SCDownloadManager()
+    private var downloader: SCDownloader
+    
+    /// The minimum duration of a query signature that you use to match reference signatures in the catalog.
+    public var minQuerySignatureDuration: TimeInterval {
+        return customShazamCatalog.minimumQuerySignatureDuration
+    }
+    
+    /// The maximum duration of a query signature that you use to match reference signatures in the catalog.
+    public var maxQuerySignatureDuration: TimeInterval {
+        return customShazamCatalog.maximumQuerySignatureDuration
     }
     
     /// Creates a new custom catalog object for storing reference audio signatures and their associated metadata.
     public init() {
+        downloader = SCDownloadManager()
+        customShazamCatalog = SHCustomCatalog()
+    }
+    
+    init(downloader: SCDownloader) {
+        self.downloader = downloader
         customShazamCatalog = SHCustomCatalog()
     }
     
