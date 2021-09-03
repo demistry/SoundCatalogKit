@@ -4,7 +4,7 @@ Framework to match custom audio against a custom reference catalog based on Shaz
 # Getting Started
 This framework simplifies the use of the [ShazamKit](https://developer.apple.com/documentation/shazamkit) framework. It abstracts implementation details away from the user and builds ontop ShazamKit to offer more development features.
 
-**You can explore a comprehensive documentation on usage by selecting the SoundCatalogKit scheme in Xcode and pressing "Ctrl + Shift + CMD + D" to build documentation. Alternatively, you can explore the bundled docc.archive file in the __SoundCatalogKit/Documentation/__ directory by dragging the file outside the Xcode file navigator and clicking it to open it. It should open the documentation explorer of Xcode 13 if installed.**
+**You can explore a comprehensive documentation on usage by selecting the SoundCatalogKit scheme in Xcode and pressing "Ctrl + Shift + CMD + D" to build documentation. Alternatively, you can explore the bundled docc.archive file in the "SoundCatalogKit/Documentation" directory by dragging the file outside the Xcode file navigator and clicking it to open it. It should open the documentation explorer of Xcode 13 if installed.**
 
 ## Requirements
 - Xcode 13 and above
