@@ -22,8 +22,7 @@ you can explore the bundled docc.archive file in the <a href="">Documentation</a
 - Save a custom catalog file to a specified location
 - Save a signature file to a specified location
 - Generate signature data from microphone
-
-100% test coverage.
+An Example App is included to demonstrate some of the ways these features can be used.
 
 ## Other features considered but not implemented due to time/other restraints
 - Uploading a signature or catalog file to a remote server. This would enable the user share custom catalogs on the fly with other users. Would have implemented this
