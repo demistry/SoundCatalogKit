@@ -55,6 +55,7 @@
 		34DAD30826E1AC5800FB9972 /* SCSignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30726E1AC5800FB9972 /* SCSignatureTests.swift */; };
 		34DAD30A26E1AC9B00FB9972 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30926E1AC9B00FB9972 /* Constants.swift */; };
 		34DAD30D26E1AF3E00FB9972 /* SCAudioConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */; };
+		34DAD30F26E1B1C800FB9972 /* SCMediaItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		34DAD30726E1AC5800FB9972 /* SCSignatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSignatureTests.swift; sourceTree = "<group>"; };
 		34DAD30926E1AC9B00FB9972 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAudioConverterTests.swift; sourceTree = "<group>"; };
+		34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMediaItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		34A7BC4326DDEFCD0076F6A3 /* SoundCatalogKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				34DAD31026E1B40C00FB9972 /* Session */,
 				34DAD30B26E1AF2E00FB9972 /* Audio */,
 				34DAD30026E1A6C500FB9972 /* Resources */,
 				34DAD2F726E189EB00FB9972 /* SignatureTests */,
@@ -296,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				34DAD2F326E1380000FB9972 /* SCCustomCatalogTests.swift */,
+				34DAD30E26E1B1C800FB9972 /* SCMediaItemTests.swift */,
 			);
 			path = CatalogTests;
 			sourceTree = "<group>";
@@ -324,6 +328,13 @@
 				34DAD30C26E1AF3E00FB9972 /* SCAudioConverterTests.swift */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		34DAD31026E1B40C00FB9972 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +505,7 @@
 				34DAD2F926E18A0700FB9972 /* SCSignatureGeneratorTests.swift in Sources */,
 				34DAD2F426E1380000FB9972 /* SCCustomCatalogTests.swift in Sources */,
 				34DAD2FF26E1920E00FB9972 /* SCSignatureGeneratorMock.swift in Sources */,
+				34DAD30F26E1B1C800FB9972 /* SCMediaItemTests.swift in Sources */,
 				34DAD30826E1AC5800FB9972 /* SCSignatureTests.swift in Sources */,
 				34A7BC4526DDEFCD0076F6A3 /* SoundCatalogKitTests.swift in Sources */,
 				34DAD2FB26E18BFE00FB9972 /* SCStreamerMock.swift in Sources */,
