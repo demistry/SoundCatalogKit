@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>BUNDLE_ID</key>
-	<string>$(BUNDLE_ID)</string>
+	<string>com.davidemi.SoundCatalogKit</string>
 </dict>
 </plist>

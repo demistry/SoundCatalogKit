@@ -10,12 +10,12 @@ import ShazamKit
 
 /// An error type that you create, or the system creates, to indicate problems with a catalog, match attempt, or signature.
 public class SCError: NSError {
-    private let bundleId = Bundle.main.infoDictionary?["BUNDLE_ID"] as? String ?? "shazam"
+    private let domainURL = "com.davidemi.SoundCatalogKit"
 
     /// Creates a SoundCatalogKit error of the specified type with the specified description.
     public init(code: SCErrorCode, description: String) {
         super.init(
-            domain: bundleId,
+            domain: domainURL,
             code: code.rawValue,
             userInfo: [NSDebugDescriptionErrorKey: description]
         )
@@ -23,7 +23,7 @@ public class SCError: NSError {
     
     /// Creates a SoundCatalogKit error of the specified type with the specified user information.
     public init(code: SCErrorCode, userInfo: [String: Any]) {
-        super.init(domain: bundleId, code: code.rawValue, userInfo: userInfo)
+        super.init(domain: domainURL, code: code.rawValue, userInfo: userInfo)
     }
     
     required init?(coder: NSCoder) {
