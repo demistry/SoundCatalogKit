@@ -5,7 +5,6 @@
 //  Created by David Ilenwabor on 03/09/2021.
 //
 
-import SoundCatalogKit
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,11 +12,14 @@ class ViewController: UIViewController {
     private let actions = FrameworkActions.allCases
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title = "Actions"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ActionsTableViewCell.nib, forCellReuseIdentifier: ActionsTableViewCell.identifier)
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 
@@ -38,7 +40,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let action = actions[indexPath.row]
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ActionsDetailsViewController") as! ActionsDetailsViewController
+        vc.action = action
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

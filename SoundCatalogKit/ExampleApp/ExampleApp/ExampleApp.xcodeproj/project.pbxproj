@@ -13,6 +13,7 @@
 		34987B8526E1EC040046357B /* ActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34987B8326E1EC040046357B /* ActionsTableViewCell.swift */; };
 		34987B8626E1EC040046357B /* ActionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34987B8426E1EC040046357B /* ActionsTableViewCell.xib */; };
 		34987B8826E1F3260046357B /* ActionsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34987B8726E1F3260046357B /* ActionsDetailsViewController.swift */; };
+		34987B8A26E1FD4F0046357B /* Images+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34987B8926E1FD4F0046357B /* Images+Names.swift */; };
 		34DAD32326E1CEFA00FB9972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD32226E1CEFA00FB9972 /* AppDelegate.swift */; };
 		34DAD32726E1CEFA00FB9972 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DAD32626E1CEFA00FB9972 /* ViewController.swift */; };
 		34DAD32A26E1CEFA00FB9972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD32826E1CEFA00FB9972 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		34987B8326E1EC040046357B /* ActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsTableViewCell.swift; sourceTree = "<group>"; };
 		34987B8426E1EC040046357B /* ActionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionsTableViewCell.xib; sourceTree = "<group>"; };
 		34987B8726E1F3260046357B /* ActionsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsDetailsViewController.swift; sourceTree = "<group>"; };
+		34987B8926E1FD4F0046357B /* Images+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Images+Names.swift"; sourceTree = "<group>"; };
 		34DAD31F26E1CEFA00FB9972 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DAD32226E1CEFA00FB9972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34DAD32626E1CEFA00FB9972 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				34987B8326E1EC040046357B /* ActionsTableViewCell.swift */,
 				34987B8426E1EC040046357B /* ActionsTableViewCell.xib */,
 				34987B8726E1F3260046357B /* ActionsDetailsViewController.swift */,
+				34987B8926E1FD4F0046357B /* Images+Names.swift */,
 			);
 			path = ExampleApp;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				34987B8526E1EC040046357B /* ActionsTableViewCell.swift in Sources */,
 				34DAD32326E1CEFA00FB9972 /* AppDelegate.swift in Sources */,
 				34987B8226E1E9690046357B /* FrameworkActions.swift in Sources */,
+				34987B8A26E1FD4F0046357B /* Images+Names.swift in Sources */,
 				34987B8826E1F3260046357B /* ActionsDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +336,9 @@
 				DEVELOPMENT_TEAM = A8SA62ZA26;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = ExampleApp;
+				INFOPLIST_KEY_CFBundleName = ExampleApp;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -361,6 +368,9 @@
 				DEVELOPMENT_TEAM = A8SA62ZA26;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = ExampleApp;
+				INFOPLIST_KEY_CFBundleName = ExampleApp;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

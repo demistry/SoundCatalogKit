@@ -3,12 +3,13 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Actions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,12 +19,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Z7-TY-edr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Z7-TY-edr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EzW-mT-Lsj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Z7-TY-edr" secondAttribute="trailing" id="JSn-rR-GUc"/>
@@ -31,14 +32,107 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Z7-TY-edr" secondAttribute="bottom" id="heG-Dr-ftg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C5I-0f-HKm"/>
+                    <navigationItem key="navigationItem" title="Actions" id="C5I-0f-HKm"/>
                     <connections>
                         <outlet property="tableView" destination="7Z7-TY-edr" id="gSl-NQ-9JA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
+            <point key="canvasLocation" x="636" y="115"/>
+        </scene>
+        <!--Actions Details View Controller-->
+        <scene sceneID="S3C-Dn-dOL">
+            <objects>
+                <viewController storyboardIdentifier="ActionsDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AJN-IB-0ux" customClass="ActionsDetailsViewController" customModule="ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OtY-NX-R5q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lxJ-EW-zs2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="8gF-Qs-2nZ"/>
+                                </constraints>
+                                <imageReference key="image" image="LetsGoHunt"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITS THE END" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cik-KS-mlg">
+                                <rect key="frame" x="116" y="435" width="182" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dQ-Hg-Swi">
+                                <rect key="frame" x="107" y="698" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="axy-J7-Lsw"/>
+                                    <constraint firstAttribute="height" constant="50" id="gkh-Ew-F1j"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Start Matching">
+                                            <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="24" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startMatching:" destination="AJN-IB-0ux" eventType="touchUpInside" id="DTn-gH-aiK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL5-BZ-336">
+                                <rect key="frame" x="107" y="780" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8P0-D1-WFO"/>
+                                    <constraint firstAttribute="height" constant="50" id="Xsp-lD-aBq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Stop Matching">
+                                            <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="24" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopMatching:" destination="AJN-IB-0ux" eventType="touchUpInside" id="BWA-89-Fj8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iu8-ef-dkG"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JL5-BZ-336" firstAttribute="centerX" secondItem="iu8-ef-dkG" secondAttribute="centerX" id="0Z0-wM-qI9"/>
+                            <constraint firstItem="lxJ-EW-zs2" firstAttribute="top" secondItem="iu8-ef-dkG" secondAttribute="top" id="5to-U3-eNh"/>
+                            <constraint firstItem="cik-KS-mlg" firstAttribute="centerX" secondItem="iu8-ef-dkG" secondAttribute="centerX" id="FPp-4p-e7F"/>
+                            <constraint firstItem="iu8-ef-dkG" firstAttribute="bottom" secondItem="JL5-BZ-336" secondAttribute="bottom" constant="32" id="MF3-ig-nQG"/>
+                            <constraint firstItem="lxJ-EW-zs2" firstAttribute="leading" secondItem="iu8-ef-dkG" secondAttribute="leading" id="N0Z-4j-x9H"/>
+                            <constraint firstItem="cik-KS-mlg" firstAttribute="centerY" secondItem="iu8-ef-dkG" secondAttribute="centerY" id="TZX-Yv-dkf"/>
+                            <constraint firstItem="JL5-BZ-336" firstAttribute="top" secondItem="7dQ-Hg-Swi" secondAttribute="bottom" constant="32" id="ZWD-1F-OPb"/>
+                            <constraint firstItem="iu8-ef-dkG" firstAttribute="trailing" secondItem="lxJ-EW-zs2" secondAttribute="trailing" id="a0f-x4-i2D"/>
+                            <constraint firstItem="7dQ-Hg-Swi" firstAttribute="centerX" secondItem="JL5-BZ-336" secondAttribute="centerX" id="fOW-Af-wU8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="lxJ-EW-zs2" id="vaL-3O-fEi"/>
+                        <outlet property="text" destination="cik-KS-mlg" id="2LN-uz-ZHR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YpO-kr-cb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473.913043478261" y="114.50892857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RJe-63-6jd">
@@ -48,6 +142,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3g0-C3-jY5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -56,12 +151,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xK7-yP-yGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+            <point key="canvasLocation" x="-310" y="115"/>
         </scene>
     </scenes>
     <resources>
+        <image name="LetsGoHunt" width="1014" height="458"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
