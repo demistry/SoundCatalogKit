@@ -23,19 +23,19 @@ enum FrameworkActions: String, CaseIterable {
     var description: String {
         switch self {
         case .AddReferenceSignatureToCatalog:
-            return "Add local reference signature to a catalog"
+            return "Add reference signature from a Shazam signature file to a catalog"
         case .AddReferenceSignatureFromAudioFile:
             return "Add Reference signature directly from an audio file"
         case .AddCatalogFromRemote:
-            return "Download a catalog from a remote source"
+            return "Download a shazam catalog from a remote source"
         case .AddCatalogFromLocalSource:
-            return "Add a catalog from a local file"
+            return "Add a shazam catalog from a local file"
         case .AddReferenceSignatureFromRemote:
-            return "Download a signature from a remote source and add to a catalog"
+            return "Download a shazam signature from a remote source and add to a catalog"
         case .DownloadSignatureFromURL:
-            return "Download signature from a remote source"
+            return "Download shazam signature from a remote source"
         case .CreateSignatureFromAudioFile:
-            return "Create signature from an audio file"
+            return "Create shazam signature from an audio file"
         }
     }
 }

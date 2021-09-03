@@ -18,33 +18,38 @@ class ActionsDetailsViewController: UIViewController {
     private var result = MatchResult(mediaItem: nil, sharkState: nil) {
         didSet {
             imageView.image = result.sharkState?.image
-            text.text = result.sharkState?.title
+            storyLabel.text = result.sharkState?.title
         }
     }
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var storyLabel: UILabel!
+    
     var action: FrameworkActions!
     var playAudioWhenMatchStarts: Bool = true
-    private var session: SCSession!
+    private var session: SCSession?
     private var audioPlayer: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        session.stopMatching()
+        session?.stopMatching()
         audioPlayer?.stop()
     }
+    
     @IBAction func startMatching(_ sender: Any) {
         if let session = session, session.isMatching {
+            session.stopMatching()
+            audioPlayer?.stop()
             return
         }
+        
         Task {
-            if let catalog = try await CatalogProvider.catalog() {
+            if let catalog = try await CatalogProvider.catalog(state: action) {
                 session = SCSession(catalog: catalog)
-                session.delegate = self
+                session?.delegate = self
                 if playAudioWhenMatchStarts {
                     try? AVAudioSession.sharedInstance().setCategory(.playAndRecord)
                     audioPlayer = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "BabyShark", withExtension: "m4a")!)
@@ -68,6 +73,7 @@ class ActionsDetailsViewController: UIViewController {
     @IBAction func stopMatching(_ sender: Any) {
         if let session = session, session.isMatching {
             session.stopMatching()
+            audioPlayer?.stop()
         }
     }
 }
@@ -96,5 +102,9 @@ extension ActionsDetailsViewController: SCSessionDelegate {
     
     func sessionDidStopMatch(_ session: SCSession) {
         print("MATCH STOPPED")
+    }
+    
+    func session(_ session: SCSession, failedToMatchDueTo error: Error) {
+        print("MATCH FAILED DUE TO: \(error)")
     }
 }

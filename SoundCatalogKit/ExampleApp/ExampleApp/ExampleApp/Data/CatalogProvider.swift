@@ -20,7 +20,7 @@ struct CatalogProvider {
         case .AddReferenceSignatureToCatalog:
             return try addSignatureFromLocalSource()
         case .AddCatalogFromLocalSource:
-            return try addSignatureFromLocalSource()
+            return try addCatalogFromLocalSource()
         }
         
     }
@@ -41,7 +41,13 @@ struct CatalogProvider {
     }
     
     private static func addCatalogFromLocalSource() throws -> SCCatalog? {
-        return nil
+        guard let signaturePath = Bundle.main.url(forResource: "BabyShark", withExtension: "shazamcatalog") else {
+            return nil
+        }
+        print("Adding custom catalog from url \(signaturePath)")
+        let customCatalog = SCCustomCatalog()
+        try customCatalog.add(from: signaturePath)
+        return customCatalog
     }
     
     private static func addSignatureFromRemoteURL() throws -> SCCatalog? {
@@ -49,7 +55,16 @@ struct CatalogProvider {
     }
     
     private static func addSignatureFromLocalSource() throws -> SCCatalog? {
-        return nil
+        guard let signaturePath = Bundle.main.url(forResource: "BabyShark", withExtension: "shazamsignature") else {
+            return nil
+        }
+        print("Signature path \(signaturePath)")
+        let signatureData = try Data(contentsOf: signaturePath)
+        let signature = try SCSignature(dataRepresentation: signatureData)
+        let customCatalog = SCCustomCatalog()
+        try customCatalog.addReferenceSignature(signature, representing: [])
+        
+        return customCatalog
     }
 }
 

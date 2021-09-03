@@ -138,7 +138,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="lxJ-EW-zs2" id="vaL-3O-fEi"/>
-                        <outlet property="text" destination="cik-KS-mlg" id="2LN-uz-ZHR"/>
+                        <outlet property="storyLabel" destination="cik-KS-mlg" id="2LN-uz-ZHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpO-kr-cb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

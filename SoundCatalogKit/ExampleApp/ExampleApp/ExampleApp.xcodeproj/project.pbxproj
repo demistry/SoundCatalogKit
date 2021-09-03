@@ -22,6 +22,8 @@
 		34DAD32C26E1CEFD00FB9972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD32B26E1CEFD00FB9972 /* Assets.xcassets */; };
 		34DAD32F26E1CEFD00FB9972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD32D26E1CEFD00FB9972 /* LaunchScreen.storyboard */; };
 		34F287A826E217C30042F6FA /* CatalogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F287A726E217C30042F6FA /* CatalogProvider.swift */; };
+		34F287AC26E21E4B0042F6FA /* BabyShark.shazamsignature in Resources */ = {isa = PBXBuildFile; fileRef = 34F287AB26E21E4B0042F6FA /* BabyShark.shazamsignature */; };
+		34F287B026E21FE40042F6FA /* BabyShark.shazamcatalog in Resources */ = {isa = PBXBuildFile; fileRef = 34F287AF26E21FE40042F6FA /* BabyShark.shazamcatalog */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +57,8 @@
 		34DAD32E26E1CEFD00FB9972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34DAD33026E1CEFD00FB9972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F287A726E217C30042F6FA /* CatalogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProvider.swift; sourceTree = "<group>"; };
+		34F287AB26E21E4B0042F6FA /* BabyShark.shazamsignature */ = {isa = PBXFileReference; lastKnownFileType = file; path = BabyShark.shazamsignature; sourceTree = "<group>"; };
+		34F287AF26E21FE40042F6FA /* BabyShark.shazamcatalog */ = {isa = PBXFileReference; lastKnownFileType = file; path = BabyShark.shazamcatalog; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 		34987B8D26E206840046357B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34F287AF26E21FE40042F6FA /* BabyShark.shazamcatalog */,
+				34F287AB26E21E4B0042F6FA /* BabyShark.shazamsignature */,
 				34DAD33026E1CEFD00FB9972 /* Info.plist */,
 				34DAD32B26E1CEFD00FB9972 /* Assets.xcassets */,
 				34987B8E26E2068E0046357B /* BabyShark.m4a */,
@@ -222,10 +228,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F287AC26E21E4B0042F6FA /* BabyShark.shazamsignature in Resources */,
 				34DAD32F26E1CEFD00FB9972 /* LaunchScreen.storyboard in Resources */,
 				34987B8626E1EC040046357B /* ActionsTableViewCell.xib in Resources */,
 				34DAD32C26E1CEFD00FB9972 /* Assets.xcassets in Resources */,
 				34DAD32A26E1CEFA00FB9972 /* Main.storyboard in Resources */,
+				34F287B026E21FE40042F6FA /* BabyShark.shazamcatalog in Resources */,
 				34987B8F26E2068E0046357B /* BabyShark.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
