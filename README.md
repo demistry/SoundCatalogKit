@@ -2,11 +2,11 @@
 Framework to match custom audio against a custom reference catalog based on ShazamKit
 
 # Getting Started
-This framework simplifies the use of the <a href="https://developer.apple.com/documentation/shazamkit">ShazamKit</a> framework. It abstracts implementation details away from the user and builds ontop ShazamKit 
+This framework simplifies the use of the [ShazamKit](https://developer.apple.com/documentation/shazamkit) framework. It abstracts implementation details away from the user and builds ontop ShazamKit 
 to offer more development features.
 
-<strong>You can explore a comprehensive documentation on usage by selecting the SoundCatalogKit scheme in Xcode and pressing "Ctrl + Shift + CMD + D" to build documentation. Alternatively,
-you can explore the bundled docc.archive file in the <a href="">Documentation</a> directory by dragging the file outside the Xcode file navigator and clicking it to open it. It should open the documentation explorer of Xcode 13 if installed.</strong>
+** You can explore a comprehensive documentation on usage by selecting the SoundCatalogKit scheme in Xcode and pressing "Ctrl + Shift + CMD + D" to build documentation. Alternatively,
+you can explore the bundled docc.archive file in the __SoundCatalogKit/Documentation/__ directory by dragging the file outside the Xcode file navigator and clicking it to open it. It should open the documentation explorer of Xcode 13 if installed. **
 
 ## Requirements
 - Xcode 13 and above
@@ -31,11 +31,9 @@ if i had more time.
 to a custom catalog at once across platforms. Would need more information on how signature addition to catalog is done to come up with the best way to implement this.
 
 ## Some design compromises
-Decided to use <a href = "https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html">async/await</a> instead of closures to enable the download of signature and catalog files from a remote server. I initially wanted to use closures 
+Decided to use [async/await](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html) instead of closures to enable the download of signature and catalog files from a remote server. I initially wanted to use closures 
 to perform this action so as to not force the learning curve of async/await onto the end developer. However, due to the instruction on the test to 
-*Use the latest Swift features to provide a rich and consistent API* and also considering the fact that the async/await pattern is better structured than closures,
-I decided to make use of it for downloading the catalog/signature files.
+**Use the latest Swift features to provide a rich and consistent API** and also considering the fact that the async/await pattern is better structured than closures, I decided to make use of it for downloading the catalog/signature files.
 
 ## Other Info
-There is a shell script in the <strong>Resources/Scripts</strong> directory. This script will help to build SoundCatalogKit as a Universal xcframework that can be used for multiple
-platforms at the same time. Simply select the <strong>UniversalFrameworkBuilder</strong> scheme in Xcode, build and run it to generate a folder called <strong>UniversalFramework</strong> in the root directory of the project. This folder will contain the created xcframework. The script supports universal framework generation for iOS and macOS, TvOS and watchOS can be added to the script by following the same format.
+There is a shell script in the **Resources/Scripts** directory. This script will help to build SoundCatalogKit as a Universal xcframework that can be used for multiple platforms at the same time. Simply select the **UniversalFrameworkBuilder** scheme in Xcode, build and run it to generate a folder called **UniversalFramework** in the root directory of the project. This folder will contain the created xcframework. The script supports universal framework generation for iOS and macOS, TvOS and watchOS can be added to the script by following the same format.
