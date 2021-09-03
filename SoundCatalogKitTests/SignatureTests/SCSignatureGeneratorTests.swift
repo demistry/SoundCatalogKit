@@ -56,7 +56,7 @@ class SCSignatureGeneratorTests: XCTestCase {
         try! signatureGenerator.generateSignatureFromAudioFile(withUrl: actualURL, andAudioFormat: nil)
         let refSigURL = Constants.FoodMathAudioSignatureURL
         let expectedSignature = try! SCSignature(dataRepresentation: Data(contentsOf: refSigURL))
-        XCTAssertEqual(signatureGenerator.signature().dataRepresentation, expectedSignature.dataRepresentation)
+        XCTAssertEqual(signatureGenerator.signature().dataRepresentation.description, expectedSignature.dataRepresentation.description)
     }
     
     func test_addSignatureFromAudioFile_fails() {

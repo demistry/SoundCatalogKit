@@ -31,7 +31,7 @@ class SCAudioConverterTests: XCTestCase {
         }
         let actualSignature = signatureGenerator.signature()
         let expectedSignature = try! SCSignature(dataRepresentation: Data(contentsOf: Constants.FoodMathAudioSignatureURL)) 
-        XCTAssertEqual(expectedSignature.dataRepresentation, actualSignature.dataRepresentation)
+        XCTAssertEqual(expectedSignature.dataRepresentation.description, actualSignature.dataRepresentation.description)
     }
 
 }
