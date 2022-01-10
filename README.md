@@ -30,8 +30,7 @@ to a custom catalog at once across platforms. Would need more information on how
 
 ## Some design compromises
 Decided to use [async/await](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html) instead of closures to enable the download of signature and catalog files from a remote server. I initially wanted to use closures 
-to perform this action so as to not force the learning curve of async/await onto the end developer. However, due to the instruction on the test to 
-**Use the latest Swift features to provide a rich and consistent API** and also considering the fact that the async/await pattern is better structured than closures, I decided to make use of it for downloading the catalog/signature files.
+to perform this action so as to not force the learning curve of async/await onto the end developer.
 
 ## Other Info
 There is a shell script in the **Resources/Scripts** directory. This script will help to build SoundCatalogKit as a Universal xcframework that can be used for multiple platforms at the same time. To run it:
